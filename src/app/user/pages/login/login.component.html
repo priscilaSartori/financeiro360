@@ -1,1 +1,18 @@
-<p>login works!</p>
+<section>
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width">
+      <mat-label>E-mail</mat-label>
+      <input matInput placeholder="E-mail" formControlName="email">
+      <mat-error *ngIf="loginForm.get('email')!.hasError('required')">E-mail é obrigatório.</mat-error>
+      <mat-error *ngIf="loginForm.get('email')!.hasError('email')">E-mail inválido.</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="full-width">
+      <mat-label>Senha</mat-label>
+      <input matInput placeholder="Senha" formControlName="password">
+      <mat-error *ngIf="loginForm.get('password')!.hasError('required')">Senha é obrigatória.</mat-error>
+      <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">Senha deve possuir no mínimo 6 caracteres.</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="loginForm.invalid">Entrar</button>
+  </form>
+</section>
