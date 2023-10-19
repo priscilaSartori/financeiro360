@@ -13,6 +13,7 @@
       <mat-error *ngIf="loginForm.get('password')!.hasError('required')">Senha é obrigatória.</mat-error>
       <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">Senha deve possuir no mínimo 6 caracteres.</mat-error>
     </mat-form-field>
-    <button mat-raised-button color="primary" [disabled]="loginForm.invalid">Entrar</button>
+    <a [routerLink]="['/forgotPassword']" class="forgotPassword">Recuperar senha</a>
+    <button mat-raised-button color="primary" class="buttonEnter" [disabled]="loginForm.invalid">Entrar</button>
   </form>
 </section>
