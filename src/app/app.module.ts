@@ -14,13 +14,15 @@ import { LoginComponent } from './user/pages/login/login.component';
 import { HomeComponent } from './user/pages/home/home.component';
 import { ForgotPasswordComponent } from './user/pages/forgot-password/forgot-password.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegistrationComponent } from './user/pages/registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

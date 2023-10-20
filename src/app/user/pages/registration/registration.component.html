@@ -1,0 +1,27 @@
+<section>
+    <h1>Crie sua conta no Planner Digital</h1>
+    <form class="login-form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" placeholder="Maria Silva" formControlName="nome">
+        <mat-error *ngIf="registrationForm.get('nome')!.hasError('required')">Nome é obrigatório.</mat-error>
+      </mat-form-field>
+    
+      <mat-form-field class="full-width">
+        <mat-label>E-mail</mat-label>
+        <input matInput type="email" placeholder="nome@email.com" formControlName="email">
+        <mat-error *ngIf="registrationForm.get('email')!.hasError('required')">Email é obrigatório.</mat-error>
+        <mat-error *ngIf="registrationForm.get('email')?.hasError('email')">Email inválido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" placeholder="Senha" formControlName="password">
+        <mat-error *ngIf="registrationForm.get('password')!.hasError('required')">Senha é obrigatória.</mat-error>
+        <mat-error *ngIf="registrationForm.get('password')?.hasError('minlength')">Senha deve possuir no mínimo 6 caracteres.</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="buttontoCreate" [disabled]="registrationForm.invalid">Criar conta</button>
+      <p>Já possui conta? <a [routerLink]="['/']" class="home">Faça login</a></p>
+    </form>
+  </section>
