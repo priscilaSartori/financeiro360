@@ -26,6 +26,7 @@ constructor(
         this.router.navigate(['']);
       }));*/
       return this.mockUsuarioLogin(usuario).pipe(tap((resposta) => {
+        console.log('resposta',resposta)
         if(!resposta.sucesso) return;
         localStorage.setItem('token', btoa(JSON.stringify("TokenQueSeriaGeradoPelaAPI")));
         localStorage.setItem('usuario', btoa(JSON.stringify(usuario)));
@@ -34,7 +35,7 @@ constructor(
   }
   private mockUsuarioLogin(usuario: IUsuario): Observable<any> {
     var retornoMock: any = [];
-    if(usuario.email === "email@gmail.com" && usuario.senha == 123456){
+    if(usuario.email == 'email@gmail.com' && usuario.password == 123456){
       retornoMock.sucesso = true;
       retornoMock.usuario = usuario;
       retornoMock.token = "TokenQueSeriaGeradoPelaAPI";

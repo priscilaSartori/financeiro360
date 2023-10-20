@@ -35,14 +35,17 @@ export class LoginComponent {
     if(this.loginForm.invalid) {
       return
     }
+
     // validar com a api
-    var usuario = this.loginForm.getRawValue() as IUsuario;
+    var usuario = this.loginForm.getRawValue() as IUsuario; 
     this.userService.logar(usuario).subscribe((response: { sucesso: any; }) => {
-        if(!response.sucesso){
-          this.snackBar.open('Falha na autenticação', 'Usuário ou senha incorretos.', {
-            duration: 3000
-          });
-        } this.router.navigate(['/home']);
+      if(!response.sucesso){
+        this.snackBar.open('Falha na autenticação', 'Usuário ou senha incorretos.', {
+          duration: 3000
+        });
+      } else {
+        this.router.navigate(['/home']);
+      } 
     })
   }
 }

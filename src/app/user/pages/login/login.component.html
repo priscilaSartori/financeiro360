@@ -10,7 +10,7 @@
   
     <mat-form-field class="full-width">
       <mat-label>Senha</mat-label>
-      <input matInput placeholder="Senha" formControlName="password">
+      <input matInput type="password" placeholder="Senha" formControlName="password">
       <mat-error *ngIf="loginForm.get('password')!.hasError('required')">Senha é obrigatória.</mat-error>
       <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">Senha deve possuir no mínimo 6 caracteres.</mat-error>
     </mat-form-field>
