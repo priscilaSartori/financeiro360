@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { navTarefasData, navLazerData, navSaudeData, navFinancasData, navCasaData } from './nav-data';
+import { navTarefasData, navLazerData, navSaudeData, navFinancasData, navCasaData } from '../../mock/nav-data';
 import { Router } from '@angular/router';
 import { ISideNavToggle } from 'src/app/interfaces/ISideNavToggle';
 import { HomeService } from 'src/app/services/home.service';

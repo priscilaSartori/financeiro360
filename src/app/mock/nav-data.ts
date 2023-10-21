@@ -1,36 +1,36 @@
 export const navTarefasData = [
   {
-    page: '',
+    page: 'routinePlanning',
     icon: 'calendar_month',
     label: 'Planejamento de rotina'
   },
   {
-    page: '',
+    page: 'habit',
     icon: 'playlist_add_check',
     label: 'Rastreador de hábitos'
   },
   {
-    page: '',
+    page: 'mealPlanner',
     icon: 'restaurant',
     label: 'Planner de refeição'
   },
   {
-    page: '',
+    page: 'sleepDiary',
     icon: 'night_shelter',
     label: 'Diário do sono'
   },
   {
-    page: '',
+    page: 'routine',
     icon: 'library_books',
     label: 'Rotina de estudos'
   },
   {
-    page: '',
+    page: 'priority',
     icon: 'priority_high',
     label: 'Tabela de prioridades'
   },
   {
-    page: '',
+    page: 'challenge',
     icon: 'inventory_2',
     label: 'Desafio 100 dias de produtividade'
   }
@@ -38,22 +38,22 @@ export const navTarefasData = [
 
 export const navLazerData = [
   {
-    page: '',
+    page: 'books',
     icon: 'book',
     label: 'Livros'
   },
   {
-    page: '',
+    page: 'films',
     icon: 'movie',
     label: 'Filmes'
   },
   {
-    page: '',
+    page: 'series',
     icon: 'slideshow',
     label: 'Séries'
   },
   {
-    page: '',
+    page: 'birthdays',
     icon: 'cake',
     label: 'Aniversariantes'
   }
@@ -61,27 +61,27 @@ export const navLazerData = [
 
 export const navSaudeData = [
   {
-    page: '',
+    page: 'doctor',
     icon: 'medical_services',
     label: 'Consultas médicas'
   },
   {
-    page: '',
+    page: 'skincare',
     icon: 'face',
     label: 'Skincare'
   },
   {
-    page: '',
+    page: 'hydration',
     icon: 'water_drop',
     label: 'Hidratação'
   },
   {
-    page: '',
+    page: 'exercises',
     icon: 'fitness_center',
     label: 'Exercícios Físicos'
   },
   {
-    page: '',
+    page: 'hairSchedule',
     icon: 'spa',
     label: 'Cronograma Capilar'
   },
@@ -94,22 +94,22 @@ export const navFinancasData = [
     label: 'Orçamento mensal'
   },
   {
-    page: '',
+    page: 'cashPurchases',
     icon: 'shopping_cart',
     label: 'Compras parceladas'
   },
   {
-    page: '',
+    page: 'spending',
     icon: 'credit_card',
     label: 'Gastos'
   },
   {
-    page: '',
+    page: 'summary',
     icon: 'money',
     label: 'Resumo do mês'
   },
   {
-    page: '',
+    page: 'planning',
     icon: 'cases',
     label: 'Planejamento profissional'
   },
@@ -117,12 +117,12 @@ export const navFinancasData = [
 
 export const navCasaData = [
   {
-    page: '',
+    page: 'houseBills',
     icon: 'home',
     label: 'Contas da casa'
   },
   {
-    page: '',
+    page: 'market',
     icon: 'shopping_bag',
     label: 'Mercado'
   },
