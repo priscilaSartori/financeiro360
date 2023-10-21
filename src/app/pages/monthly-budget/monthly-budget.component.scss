@@ -1,0 +1,47 @@
+section {
+  position: absolute;
+  padding-left: 30px;
+  top: 43px;
+}
+
+h2 {
+  height: 10%;
+  text-align: center;
+}
+
+.orcamento {
+  display: flex;
+  flex-direction: row;
+  height: 80%;
+}
+
+.orcamento-receita {
+  width: 50%;
+}
+
+.orcamento-despesa {
+  width: 50%;
+}
+
+.saldo {
+  height: 10%;
+  text-align: center;
+}
+
+.ativo {
+  width: 1100px;
+  left: 265px;
+}
+
+.inativo {
+  width: 1285px;
+  left: 80px;
+}
+
+.inputVencimento {
+  width: 120px;
+}
+
+.inputValor {
+  width: 100px;
+}

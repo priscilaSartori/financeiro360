@@ -17,11 +17,12 @@ export class SidenavComponent implements OnInit {
   navSaude = navSaudeData;
   navFinancas = navFinancasData;
   navCasa = navCasaData;
+  page: string = ''
 
   constructor(private homeService: HomeService) {}
 
   ngOnInit() {
-    this.homeService.obterVariavelObservable().subscribe(novaVariavel => {
+    this.homeService.obterVariavel1Observable().subscribe(novaVariavel => {
       this.collapsed = novaVariavel;
     });
   }
@@ -29,5 +30,9 @@ export class SidenavComponent implements OnInit {
   // Método para atualizar a variável no serviço
   toggleCollapse() {
     this.homeService.alternarCollapsed();
+  }
+
+  displayPage(event: any) {
+    this.homeService.alternarPage(event)
   }
 }

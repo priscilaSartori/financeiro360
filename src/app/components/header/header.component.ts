@@ -14,6 +14,7 @@ export class HeaderComponent {
   name: string = '';
   usuario: string = '';
   collapsed: boolean = false;
+  page: string = 'PAINEL'
   
   constructor(
     private router: Router,
@@ -30,9 +31,15 @@ export class HeaderComponent {
   }
 
   ngOnInit() {
-    this.homeService.obterVariavelObservable().subscribe(novaVariavel => {
+    this.homeService.obterVariavel1Observable().subscribe(novaVariavel => {
       this.collapsed = novaVariavel;
     });
+
+    this.homeService.obterVariavel2Observable().subscribe(novaVariavel => {
+      if(novaVariavel === 'monthlyBudget') {
+        this.page = 'ORÇAMENTO MENSAL';
+      }
+    });    
   }
   
   toggleProfile() {

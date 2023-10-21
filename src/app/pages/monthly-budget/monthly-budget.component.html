@@ -1,1 +1,34 @@
-<p>monthly-budget works!</p>
+<section class="elemento {{ collapsed ? 'ativo' : 'inativo' }}">
+  <div class="saldo" *ngIf="calcularSaldo() !== null">
+    <h3>Saldo Mensal: {{ calcularSaldo() | currency:'BRL':'symbol':'1.2-2' }}</h3>
+  </div>
+  <div class="orcamento">
+    <div class="orcamento-receita">
+        <h3>Receitas</h3>
+        <div *ngIf="calcularTotalReceitas() !== null">
+            <h3>Total de Receitas: {{ calcularTotalReceitas() | currency:'BRL':'symbol':'1.2-2' }}</h3>
+        </div>
+        <button (click)="adicionarReceita()">Adicionar Receita</button>
+        <div *ngFor="let receita of receitas; let i = index">
+          <input type="text" [(ngModel)]="receitas[i].descricao" placeholder="Descrição" />
+          <input type="number" [(ngModel)]="receitas[i].valor" class="inputValor"/>
+          <input type="date" [(ngModel)]="receitas[i].recebimento" placeholder="recebimento" class="inputVencimento">
+          <button (click)="removerReceita(i)">Remover</button>
+        </div>
+    </div>
+    <div class="orcamento-despesa">
+        <h3>Despesas</h3>
+        <div *ngIf="calcularTotalDespesas() !== null">
+            <h3>Total de Despesas: {{ calcularTotalDespesas() | currency:'BRL':'symbol':'1.2-2' }}</h3>
+        </div>
+        <button (click)="adicionarDespesa()">Adicionar Despesa</button>
+        <div *ngFor="let despesa of despesas; let i = index">
+          <input type="text" [(ngModel)]="despesas[i].descricao" placeholder="Descrição" />
+          <input type="number" [(ngModel)]="despesas[i].valor" class="inputValor"/>
+          <input type="date" [(ngModel)]="despesas[i].vencimento" placeholder="Vencimento" class="inputVencimento">
+          <button (click)="removerDespesa(i)">Remover</button>
+        </div>
+    </div>
+  </div>
+</section>
+<!-- Colocar um botao para o envio das informações para a API -->

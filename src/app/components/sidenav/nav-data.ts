@@ -1,36 +1,36 @@
 export const navTarefasData = [
   {
-      routerLink: '',
-      icon: 'calendar_month',
-      label: 'Planejamento de rotina'
+    page: '',
+    icon: 'calendar_month',
+    label: 'Planejamento de rotina'
   },
   {
-      routerLink: '',
-      icon: 'playlist_add_check',
-      label: 'Rastreador de hábitos'
+    page: '',
+    icon: 'playlist_add_check',
+    label: 'Rastreador de hábitos'
   },
   {
-      routerLink: '',
-      icon: 'restaurant',
-      label: 'Planner de refeição'
+    page: '',
+    icon: 'restaurant',
+    label: 'Planner de refeição'
   },
   {
-    routerLink: '',
+    page: '',
     icon: 'night_shelter',
     label: 'Diário do sono'
   },
   {
-    routerLink: '',
+    page: '',
     icon: 'library_books',
     label: 'Rotina de estudos'
   },
   {
-    routerLink: '',
+    page: '',
     icon: 'priority_high',
     label: 'Tabela de prioridades'
   },
   {
-    routerLink: '',
+    page: '',
     icon: 'inventory_2',
     label: 'Desafio 100 dias de produtividade'
   }
@@ -38,50 +38,50 @@ export const navTarefasData = [
 
 export const navLazerData = [
   {
-      routerLink: '',
-      icon: 'book',
-      label: 'Livros'
+    page: '',
+    icon: 'book',
+    label: 'Livros'
   },
   {
-      routerLink: '',
-      icon: 'movie',
-      label: 'Filmes'
+    page: '',
+    icon: 'movie',
+    label: 'Filmes'
   },
   {
-      routerLink: '',
-      icon: 'slideshow',
-      label: 'Séries'
+    page: '',
+    icon: 'slideshow',
+    label: 'Séries'
   },
   {
-      routerLink: '',
-      icon: 'cake',
-      label: 'Aniversariantes'
+    page: '',
+    icon: 'cake',
+    label: 'Aniversariantes'
   }
 ]
 
 export const navSaudeData = [
   {
-    routerLink: '',
+    page: '',
     icon: 'medical_services',
     label: 'Consultas médicas'
   },
   {
-    routerLink: '',
+    page: '',
     icon: 'face',
     label: 'Skincare'
   },
   {
-    routerLink: '',
+    page: '',
     icon: 'water_drop',
     label: 'Hidratação'
   },
   {
-    routerLink: '',
+    page: '',
     icon: 'fitness_center',
     label: 'Exercícios Físicos'
   },
   {
-    routerLink: '',
+    page: '',
     icon: 'spa',
     label: 'Cronograma Capilar'
   },
@@ -89,27 +89,27 @@ export const navSaudeData = [
 
 export const navFinancasData = [
   {
-      routerLink: '',
-      icon: 'savings',
-      label: 'Orçamento mensal'
+    page: 'monthlyBudget',
+    icon: 'savings',
+    label: 'Orçamento mensal'
   },
   {
-    routerLink: '',
+    page: '',
     icon: 'shopping_cart',
     label: 'Compras parceladas'
   },
   {
-    routerLink: '',
+    page: '',
     icon: 'credit_card',
     label: 'Gastos'
   },
   {
-    routerLink: '',
+    page: '',
     icon: 'money',
     label: 'Resumo do mês'
   },
   {
-    routerLink: '',
+    page: '',
     icon: 'cases',
     label: 'Planejamento profissional'
   },
@@ -117,13 +117,13 @@ export const navFinancasData = [
 
 export const navCasaData = [
   {
-      routerLink: '',
-      icon: 'home',
-      label: 'Contas da casa'
+    page: '',
+    icon: 'home',
+    label: 'Contas da casa'
   },
   {
-      routerLink: '',
-      icon: 'shopping_bag',
-      label: 'Mercado'
+    page: '',
+    icon: 'shopping_bag',
+    label: 'Mercado'
   },
 ]
