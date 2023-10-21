@@ -1,1 +1,68 @@
-<p>sidenav works!</p>
+<div class="sidenav">
+  <div class="logo-container" class="elemento {{ collapsed ? 'ativo' : 'inativo' }}">
+    <button class="sidenav-button-logo" (click)="toggleCollapse()">
+      <mat-icon class="icon">menu</mat-icon>
+    </button>
+    <button type="button" class="sidenav-button" *ngIf="collapsed">
+      <mat-icon class="sidenav-button-icon">home</mat-icon>
+      <span class="sidenav-button-text">Início</span>
+    </button>
+  </div>
+  <div class="container" class="elemento {{ collapsed ? 'ativo' : 'inativo' }}">
+    <div>
+      <p *ngIf="collapsed">TAREFAS</p>
+      <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let data of navTarefas">
+          <a class="sidenav-nav-link" [routerLink]="[data.routerLink]" title={{data.label}}>
+            <mat-icon class="sidenav-link-icon">{{data.icon}}</mat-icon>
+            <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <p *ngIf="collapsed">LAZER</p>
+      <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let data of navLazer">
+          <a class="sidenav-nav-link" title={{data.label}} [routerLink]="[data.routerLink]">
+            <mat-icon class="sidenav-link-icon">{{data.icon}}</mat-icon>
+            <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <p *ngIf="collapsed">SAÚDE</p>
+      <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let data of navSaude">
+          <a class="sidenav-nav-link" [routerLink]="[data.routerLink]" title={{data.label}}>
+            <mat-icon class="sidenav-link-icon">{{data.icon}}</mat-icon>
+            <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <p *ngIf="collapsed">FINANÇAS</p>
+      <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let data of navFinancas">
+          <a class="sidenav-nav-link" [routerLink]="[data.routerLink]" title={{data.label}}>
+            <mat-icon class="sidenav-link-icon">{{data.icon}}</mat-icon>
+            <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <p *ngIf="collapsed">CASA</p>
+      <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let data of navCasa">
+          <a class="sidenav-nav-link" [routerLink]="[data.routerLink]" title={{data.label}}>
+            <mat-icon class="sidenav-link-icon">{{data.icon}}</mat-icon>
+            <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ProfileComponent } from '../../dialog/profile/profile.component';
 import { ChangePasswordComponent } from '../../dialog/change-password/change-password.component';
+import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-header',
@@ -12,11 +13,15 @@ import { ChangePasswordComponent } from '../../dialog/change-password/change-pas
 export class HeaderComponent {
   name: string = '';
   usuario: string = '';
-
+  collapsed: boolean = false;
+  
   constructor(
     private router: Router,
     public dialog: MatDialog,
+    public homeService: HomeService,
   ) {
+    
+    //Nome 
     const usuarioRecuperado = localStorage.getItem('usuarioLogado')
     if (usuarioRecuperado) {
       const jsonUsuario = JSON.parse(usuarioRecuperado)
@@ -25,7 +30,9 @@ export class HeaderComponent {
   }
 
   ngOnInit() {
-    
+    this.homeService.obterVariavelObservable().subscribe(novaVariavel => {
+      this.collapsed = novaVariavel;
+    });
   }
   
   toggleProfile() {

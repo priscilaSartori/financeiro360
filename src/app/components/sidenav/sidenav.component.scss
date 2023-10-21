@@ -1,0 +1,138 @@
+.sidenav {
+  position:absolute;
+  width: 5rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-container {
+  align-items: center;
+  height: 43px;
+  background: #1c1f2b;
+  position: fixed; 
+}
+
+.container {
+  position: fixed;
+  top: 43px;
+  background: #1c1f2b;
+  overflow-y: scroll;
+  height: 550px; 
+  padding-bottom: 30px;
+}
+
+.sidenav-button-logo {
+  background: #ff5630;
+  border: none;
+  color: #fff;
+  width: 80px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 35px;
+  font-weight: 900;
+  z-index: 2;
+}
+
+.sidenav-button {
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  background: #1c1f2b;
+  border: none;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  left:150px;
+  top: 10px;
+  width: 100px;
+  animation: go-back 1s;
+  z-index: -1;
+}
+
+.sidenav-button-text {
+  position: absolute;
+  left: 30px;
+  top: 3px;
+}
+
+.sidenav-collapsed {
+  width: 16.5625rem;
+}
+
+.sidenav-nav {
+  list-style: none;
+  padding: 0.938rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100% - 3.65rem);
+  cursor: pointer;
+}
+
+.sidenav-nav-item {
+  width: 100%;
+  margin-bottom: 0.625rem;
+}
+
+.sidenav-nav-link {
+  display: flex;
+  align-items: center;
+  height: auto;
+  color: #f3f3f3;
+  margin: 0;
+  text-decoration: none;
+  transition: color .3s ease;
+}
+
+.sidenav-link-icon {
+  font-size: 22px;
+  width: 2rem;
+  min-width: 2rem;
+  margin: 0;
+  text-align: center;
+}
+
+.sidenav-link-text {
+  margin-left: 1.5rem;
+  font-size: medium;
+  word-wrap: break-word;
+}
+
+.sidenav-nav-link:hover {
+  background-color: #ff5630;
+  width: auto;
+}
+
+p {
+  color: #bdbdbd;
+  font-size: small;
+  padding-left: 30px;
+  animation: go-back 1s;
+  padding-top: 20px;
+}
+
+.sidenav-img {
+  width: 80px;
+  padding-left: 80px;
+  left: 100px;
+  background: #1c1f2b;
+}
+
+@keyframes go-back {
+  0% {
+      transform: translateX(-70px);
+  }
+  100% {
+      transform: translateX(0px);
+  }
+}
+
+.ativo {
+  width: 265px;
+}
+
+.inativo {
+  width: 80px;
+}
