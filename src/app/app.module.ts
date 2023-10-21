@@ -13,15 +13,16 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './user/pages/login/login.component';
-import { HomeComponent } from './user/pages/home/home.component';
-import { ForgotPasswordComponent } from './user/pages/forgot-password/forgot-password.component';
+import { LoginComponent } from './pages/user/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ForgotPasswordComponent } from './pages/user/forgot-password/forgot-password.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RegistrationComponent } from './user/pages/registration/registration.component';
+import { RegistrationComponent } from './pages/user/registration/registration.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ProfileComponent } from './dialog/profile/profile.component';
 import { ChangePasswordComponent } from './dialog/change-password/change-password.component';
+import { MonthlyBudgetComponent } from './pages/monthly-budget/monthly-budget.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ChangePasswordComponent } from './dialog/change-password/change-passwor
     HeaderComponent,
     SidenavComponent,
     ProfileComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    MonthlyBudgetComponent
   ],
   imports: [
     BrowserModule,
