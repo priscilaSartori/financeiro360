@@ -1,0 +1,14 @@
+<mat-toolbar>
+    <h1>PAINEL</h1>
+    <button mat-button type="button"[matMenuTriggerFor]="menuProfile" class="btnProfile">
+        <div class="btnDivProfile">
+            <mat-icon>account_circle</mat-icon>
+            <span class="btn-spanProfile">{{usuario}}</span>
+        </div>
+        <mat-menu #menuProfile="matMenu">
+            <button mat-menu-item (click)="toggleProfile()">Meu Perfil</button>
+            <button mat-menu-item (click)="toggleChangePassword()">Trocar senha</button>
+            <button mat-menu-item (click)="deslogar()">Sair</button>
+        </mat-menu>
+    </button>
+</mat-toolbar>

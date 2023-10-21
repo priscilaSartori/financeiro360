@@ -7,6 +7,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatMenuModule } from '@angular/material/menu'
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +18,10 @@ import { HomeComponent } from './user/pages/home/home.component';
 import { ForgotPasswordComponent } from './user/pages/forgot-password/forgot-password.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './user/pages/registration/registration.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { ProfileComponent } from './dialog/profile/profile.component';
+import { ChangePasswordComponent } from './dialog/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,11 @@ import { RegistrationComponent } from './user/pages/registration/registration.co
     LoginComponent,
     HomeComponent,
     ForgotPasswordComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    HeaderComponent,
+    SidenavComponent,
+    ProfileComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +47,9 @@ import { RegistrationComponent } from './user/pages/registration/registration.co
     MatInputModule,
     MatButtonModule,
     MatDialogModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

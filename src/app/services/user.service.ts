@@ -1,48 +1,46 @@
-import { Injectable } from '@angular/core';
-// import { environment } from 'src/environments/environment';
-// import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { IUsuario } from '../interfaces/IUsuario';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 
 export class UserService {
-constructor( 
-    // private httpClient: HttpClient, 
-    private router: Router ) { }
+  private userSubject = new BehaviorSubject<any>(null);
+  public user$: Observable<any> = this.userSubject.asObservable();
+  retornoMock: any = [];
 
-//   private readonly baseUrl = environment["apiUrl"];
+  constructor( private router: Router ) {
+    this.retornoMock = [];
+  }
 
   logar(usuario: IUsuario) {
-    /*return this.httpClient.post<any>(apiUrlUsuario + "/login", usuario).pipe(
-      tap((resposta) => {
-        if(!resposta.sucesso) return;
-        localStorage.setItem('token', btoa(JSON.stringify(resposta['token'])));
-        localStorage.setItem('usuario', btoa(JSON.stringify(resposta['usuario'])));
-        this.router.navigate(['']);
-      }));*/
-      return this.mockUsuarioLogin(usuario).pipe(tap((resposta) => {
-        console.log('resposta',resposta)
-        if(!resposta.sucesso) return;
-        localStorage.setItem('token', btoa(JSON.stringify("TokenQueSeriaGeradoPelaAPI")));
-        localStorage.setItem('usuario', btoa(JSON.stringify(usuario)));
-        this.router.navigate(['']);
-      }));
-  }
-  private mockUsuarioLogin(usuario: IUsuario): Observable<any> {
-    var retornoMock: any = [];
-    if(usuario.email == 'email@gmail.com' && usuario.password == 123456){
-      retornoMock.sucesso = true;
-      retornoMock.usuario = usuario;
-      retornoMock.token = "TokenQueSeriaGeradoPelaAPI";
-      return of(retornoMock);
-    }
-    retornoMock.sucesso = false;
-    retornoMock.usuario = usuario;
-    return of(retornoMock);
+        return this.mockUsuarioLogin(usuario).pipe(tap((resposta) => {
+          if(!resposta.sucesso) return;
+          localStorage.setItem('token', btoa(JSON.stringify("TokenQueSeriaGeradoPelaAPI")));
+          localStorage.setItem('usuario', btoa(JSON.stringify(usuario)));
+          this.router.navigate(['']);
+        }));
+      }
+      private mockUsuarioLogin(usuario: IUsuario): Observable<any> {
+        if(usuario.email == 'email@gmail.com' && usuario.password == 123456){
+          this.retornoMock.sucesso = true;
+          this.retornoMock.usuario = usuario;
+          this.retornoMock.usuario.name = 'Ana Silva';
+          this.retornoMock.token = "TokenQueSeriaGeradoPelaAPI";
+          localStorage.setItem('usuarioLogado', (JSON.stringify(usuario)));
+          return of(this.retornoMock);
+        }
+        this.retornoMock.sucesso = false;
+        this.retornoMock.usuario = usuario;
+        return of(this.retornoMock);
+      }
+
+  logout() {
+    this.userSubject.next(null);
   }
 }
