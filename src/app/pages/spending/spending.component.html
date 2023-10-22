@@ -15,6 +15,11 @@
     <label for="valor">Valor:</label>
     <input type="number" id="valor" [(ngModel)]="valor" required [ngModelOptions]="{standalone: true}">
 
+    <label for="parcela">Categorias:</label>
+    <select [(ngModel)]="categoria" [ngModelOptions]="{standalone: true}">
+      <option *ngFor="let categoria of categorias" [value]="categoria.name">{{ categoria.name }}</option>
+    </select>
+
     <button type="submit">Adicionar</button>
   </form>
 
@@ -26,6 +31,7 @@
         <th>Descrição</th>
         <th>Forma de Pagamento</th>
         <th>Valor</th>
+        <th>Categoria</th>
         <th>Excluir</th>
       </tr>
     </thead>
@@ -35,6 +41,7 @@
         <td>{{ item.descricao }}</td>
         <td>{{ item.formaPagamento }}</td>
         <td>{{ item.valor | currency:'BRL':'symbol':'1.2-2' }}</td>
+        <td>{{ item.categoria }}</td>
         <td><button (click)="removerGasto(i)">Excluir</button></td>
       </tr>
     </tbody>

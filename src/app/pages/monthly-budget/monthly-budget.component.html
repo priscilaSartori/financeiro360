@@ -1,34 +1,81 @@
 <section class="elemento {{ collapsed ? 'ativo' : 'inativo' }}">
-  <div class="saldo" *ngIf="calcularSaldo() !== null">
-    <h3>Saldo Mensal: {{ calcularSaldo() | currency:'BRL':'symbol':'1.2-2' }}</h3>
+  
+  <div>
+    <h3>Receitas</h3>
+    <form (ngSubmit)="adicionarItemReceita()">
+      <label for="descricaoReceita">Descrição:</label>
+      <input type="text" id="descricaoReceita" [(ngModel)]="descricaoReceita" required [ngModelOptions]="{standalone: true}">
+  
+      <label for="valorReceita">Valor:</label>
+      <input type="number" id="valorReceita" [(ngModel)]="valorReceita" required [ngModelOptions]="{standalone: true}">
+  
+      <label for="dataReceita">Data:</label>
+      <input type="date" id="dataReceita" [(ngModel)]="dataReceita" required [ngModelOptions]="{standalone: true}">
+
+      <button type="submit">Adicionar</button>
+    </form>
+    
+    <h3>Total das receitas: {{ calcularTotalReceitas() | currency:'BRL':'symbol':'1.2-2' }}</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Descrição</th>
+          <th>Valor</th>
+          <th>Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of itemsReceita; let i = index">
+          <td>{{ item.data }}</td>
+          <td>{{ item.descricao }}</td>
+          <td>{{ item.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
+          <td><button (click)="removerItemReceita(i)">Excluir</button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="orcamento">
-    <div class="orcamento-receita">
-        <h3>Receitas</h3>
-        <div *ngIf="calcularTotalReceitas() !== null">
-            <h3>Total de Receitas: {{ calcularTotalReceitas() | currency:'BRL':'symbol':'1.2-2' }}</h3>
-        </div>
-        <button (click)="adicionarReceita()">Adicionar Receita</button>
-        <div *ngFor="let receita of receitas; let i = index">
-          <input type="text" [(ngModel)]="receitas[i].descricao" placeholder="Descrição" />
-          <input type="number" [(ngModel)]="receitas[i].valor" class="inputValor"/>
-          <input type="date" [(ngModel)]="receitas[i].recebimento" placeholder="recebimento" class="inputVencimento">
-          <button (click)="removerReceita(i)">Remover</button>
-        </div>
-    </div>
-    <div class="orcamento-despesa">
-        <h3>Despesas</h3>
-        <div *ngIf="calcularTotalDespesas() !== null">
-            <h3>Total de Despesas: {{ calcularTotalDespesas() | currency:'BRL':'symbol':'1.2-2' }}</h3>
-        </div>
-        <button (click)="adicionarDespesa()">Adicionar Despesa</button>
-        <div *ngFor="let despesa of despesas; let i = index">
-          <input type="text" [(ngModel)]="despesas[i].descricao" placeholder="Descrição" />
-          <input type="number" [(ngModel)]="despesas[i].valor" class="inputValor"/>
-          <input type="date" [(ngModel)]="despesas[i].vencimento" placeholder="Vencimento" class="inputVencimento">
-          <button (click)="removerDespesa(i)">Remover</button>
-        </div>
-    </div>
+
+  <div>
+    <h3>Despesas Fixas</h3>
+    <form (ngSubmit)="adicionarItemDespesa()">
+      <label for="descricaoDespesa">Descrição:</label>
+      <input type="text" id="descricaoDespesa" [(ngModel)]="descricaoDespesa" required [ngModelOptions]="{standalone: true}">
+  
+      <label for="valorDespesa">Valor:</label>
+      <input type="number" id="valorDespesa" [(ngModel)]="valorDespesa" required [ngModelOptions]="{standalone: true}">
+  
+      <label for="vencimentoDespesa">Data:</label>
+      <input type="date" id="vencimentoDespesa" [(ngModel)]="vencimentoDespesa" required [ngModelOptions]="{standalone: true}">
+     
+      <label for="parcela">Categorias:</label>
+      <select [(ngModel)]="categoria" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let categoria of categorias" [value]="categoria.name">{{ categoria.name }}</option>
+      </select>
+      
+      <button type="submit">Adicionar</button>
+    </form>
+    
+    <h3>Total dos gastos: {{ calcularTotalDespesas() | currency:'BRL':'symbol':'1.2-2' }}</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Categoria</th>
+          <th>Descrição</th>
+          <th>Valor</th>
+          <th>Vencimento</th>
+          <th>Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of itemsDespesa; let i = index">
+          <td>{{ item.categoria }}</td>
+          <td>{{ item.descricao }}</td>
+          <td>{{ item.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
+          <td>{{ item.vencimento }}</td>
+          <td><button (click)="removerItemDespesa(i)">Excluir</button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
-<!-- Colocar um botao para o envio das informações para a API -->

@@ -8,9 +8,10 @@ import { HomeService } from 'src/app/services/home.service';
 })
 export class CashPurchasesComponent {
   collapsed: boolean = false;
-  items: { id: number, descricao: string, valor: number, parcelas: number, meses: string[] }[] = [];
+  items: { id: number, descricao: string, valor: number, parcelas: number, categoria: string, meses: string[] }[] = [];
   descricao: string = '';
   valor: number = 0;
+  categoria: string = '';
   mesSelecionado!: string; // Mês inicial
   quantidadeParcelas: number = 1; // Quantidade inicial de parcelas
   meses = [
@@ -26,6 +27,19 @@ export class CashPurchasesComponent {
     { value: 10, name: 'Outubro' },
     { value: 11, name: 'Novembro' },
     { value: 12, name: 'Dezembro' },
+  ];
+  categorias = [
+    { value: 1, name: 'Moradia' },
+    { value: 2, name: 'Supermercado' },
+    { value: 3, name: 'TV / Internet / Telefone' },
+    { value: 4, name: 'Transporte' },
+    { value: 5, name: 'Lazer' },
+    { value: 6, name: 'Saúde' },
+    { value: 7, name: 'Bares / Restaurantes' },
+    { value: 8, name: 'Lanches' },
+    { value: 9, name: 'Roupas novas' },
+    { value: 10, name: 'Cinema' },
+    { value: 11, name: 'Educação' },
   ];
   parcelas: any[] = [];
   mesesSelecionados: string[] = [];
@@ -58,7 +72,7 @@ export class CashPurchasesComponent {
   
   adicionarItem() {
     this.criarParcelas();
-    const novoItem = { id: this.items.length +1, descricao: this.descricao, valor: this.valor, parcelas: this.quantidadeParcelas, meses: this.parcelas };
+    const novoItem = { id: this.items.length +1, descricao: this.descricao, valor: this.valor, parcelas: this.quantidadeParcelas, categoria: this.categoria, meses: this.parcelas };
     this.items.push(novoItem);
     this.descricao = '';
     this.valor = 0;

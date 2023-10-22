@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { IDespesa } from 'src/app/interfaces/IDespesa';
-import { IReceita } from 'src/app/interfaces/IReceita';
 import { HomeService } from 'src/app/services/home.service';
 
 @Component({
@@ -9,10 +7,32 @@ import { HomeService } from 'src/app/services/home.service';
   styleUrls: ['./monthly-budget.component.scss']
 })
 export class MonthlyBudgetComponent {
-  despesas: IDespesa[] = [];
-  receitas: IReceita[] = [];
   collapsed: boolean = false;
-  
+  descricaoReceita: string = '';
+  valorReceita: number = 0;
+  dataReceita!: string;
+  itemsReceita: { id: number, descricao: string, valor: number, data: string }[] = [];
+
+  descricaoDespesa: string = '';
+  valorDespesa: number = 0;
+  vencimentoDespesa!: string;
+  categoria: string = '';
+  itemsDespesa: { id: number, categoria: string, descricao: string, valor: number, vencimento: string }[] = [];
+
+  categorias = [
+    { value: 1, name: 'Moradia' },
+    { value: 2, name: 'Supermercado' },
+    { value: 3, name: 'TV / Internet / Telefone' },
+    { value: 4, name: 'Transporte' },
+    { value: 5, name: 'Lazer' },
+    { value: 6, name: 'Saúde' },
+    { value: 7, name: 'Bares / Restaurantes' },
+    { value: 8, name: 'Lanches' },
+    { value: 9, name: 'Roupas novas' },
+    { value: 10, name: 'Cinema' },
+    { value: 11, name: 'Educação' },
+  ];
+
   constructor(
     public homeService: HomeService,
   ) {}
@@ -23,31 +43,36 @@ export class MonthlyBudgetComponent {
     });
   }
 
-  adicionarDespesa() {
-    this.despesas.push({ descricao: '', valor: 0, vencimento: '' });
+  adicionarItemReceita() {
+    const novoItem = { id: this.itemsReceita.length +1, descricao: this.descricaoReceita, valor: this.valorReceita, data: this.dataReceita, };
+    this.itemsReceita.push(novoItem);
+    this.descricaoReceita = '';
+    this.valorReceita = 0;
+    this.dataReceita = '';
   }
-
-  removerDespesa(index: number) {
-    this.despesas.splice(index, 1);
-  }
-
-  adicionarReceita() {
-    this.receitas.push({ descricao: '', valor: 0, recebimento: '' });
-  }
-
-  removerReceita(index: number) {
-    this.receitas.splice(index, 1);
+  
+  adicionarItemDespesa() {
+    const novoItem = { id: this.itemsDespesa.length +1, categoria: this.categoria, descricao: this.descricaoDespesa, valor: this.valorDespesa, vencimento: this.vencimentoDespesa, };
+    this.itemsDespesa.push(novoItem);
+    this.categoria = '';
+    this.descricaoDespesa = '';
+    this.valorDespesa = 0;
+    this.vencimentoDespesa = '';
   }
 
   calcularTotalReceitas(): number {
-    return this.receitas.reduce((total, receita) => total + receita.valor, 0);
+    return this.itemsReceita.reduce((total, item) => total + item.valor, 0);
   }
 
   calcularTotalDespesas(): number {
-    return this.despesas.reduce((total, despesa) => total + despesa.valor, 0);
+    return this.itemsDespesa.reduce((total, item) => total + item.valor, 0);
   }
 
-  calcularSaldo(): number {
-    return this.calcularTotalReceitas() - this.calcularTotalDespesas();
+  removerItemReceita(index: number) {
+    this.itemsReceita.splice(index, 1);
+  }
+
+  removerItemDespesa(index: number) {
+    this.itemsDespesa.splice(index, 1);
   }
 }
