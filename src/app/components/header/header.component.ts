@@ -91,7 +91,7 @@ export class HeaderComponent {
         this.page = 'CONTROLE DE COMPRAS PARCELADAS';
       }
       if(novaVariavel === 'spending') {
-        this.page = 'GASTOS';
+        this.page = 'CONTROLE DE GASTOS';
       }
       if(novaVariavel === 'summary') {
         this.page = 'RESUMO DO MÊS';
