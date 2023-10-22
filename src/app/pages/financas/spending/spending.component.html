@@ -36,12 +36,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of items; let i = index">
-        <td>{{ item.data }}</td>
-        <td>{{ item.descricao }}</td>
-        <td>{{ item.formaPagamento }}</td>
-        <td>{{ item.valor | currency:'BRL':'symbol':'1.2-2' }}</td>
-        <td>{{ item.categoria }}</td>
+      <tr *ngFor="let gasto of gastos; let i = index">
+        <td>{{ gasto.data }}</td>
+        <td>{{ gasto.descricao }}</td>
+        <td>{{ gasto.formaPagamento }}</td>
+        <td>{{ gasto.valor | currency:'BRL':'symbol':'1.2-2' }}</td>
+        <td>{{ gasto.categoria }}</td>
         <td><button (click)="removerGasto(i)">Excluir</button></td>
       </tr>
     </tbody>

@@ -31,6 +31,16 @@ export class FinancesService {
   }[] = [];
   private itemsReceita1: {}[] = []
 
+  itemsGastos: {
+    id: number, 
+    data: string, 
+    descricao: string, 
+    formaPagamento: string, 
+    valor: number, 
+    categoria: string
+  }[] = [];
+  private itemsGastos1: {}[] = []
+
   getComprasParceladas() {
     this.comprasParceladas1 = JSON.parse(localStorage.getItem('comprasParceladas')!);
     return this.comprasParceladas1;
@@ -74,5 +84,24 @@ export class FinancesService {
   removeItemDespesa(index: any) {
     this.itemsDespesa.splice(index, 1);
     localStorage.setItem('despesas', JSON.stringify(this.itemsDespesa));
+  }
+
+  // getItemGastos() {
+  //   this.itemsGastos1 = JSON.parse(localStorage.getItem('gastos')!);
+  //   return this.itemsGastos1;
+  // }
+  getItemGastos(): any[] {
+    const gastos = localStorage.getItem('gastos');
+    return gastos ? JSON.parse(gastos) : [];
+  }
+  
+  addItemGastos(gasto: any) {
+    this.itemsGastos.push(gasto);
+    localStorage.setItem('gastos', JSON.stringify(this.itemsGastos));
+  }
+
+  removeItemGastos(index: any) {
+    this.itemsGastos.splice(index, 1);
+    localStorage.setItem('gastos', JSON.stringify(this.itemsGastos));
   }
 }

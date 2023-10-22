@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
 import { pagamentosData, categoriasData } from '../../../mock/financas-data';
+import { FinancesService } from 'src/app/services/finances.service';
 
 @Component({
   selector: 'app-spending',
@@ -19,10 +20,14 @@ export class SpendingComponent {
   formaPagamento: string = '';
   valor: number = 0;
   categoria: string = '';
+  gastos: any[] = [];
 
-  items: { id: number, data: string, descricao: string, formaPagamento: string, valor: number, categoria: string }[] = [];
-    
-  constructor(public homeService: HomeService) {}
+  constructor(
+    public homeService: HomeService,
+    public financesService: FinancesService,
+    ) {
+      this.gastos = this.financesService.getItemGastos();
+    }
 
   ngOnInit() {
     this.homeService.obterVariavel1Observable().subscribe(novaVariavel => {
@@ -31,19 +36,21 @@ export class SpendingComponent {
   }
 
   adicionarItem() {
-    const novoItem = { id: this.items.length +1, data: this.data, descricao: this.descricao, formaPagamento: this.formaPagamento, valor: this.valor, categoria: this.categoria };
-    this.items.push(novoItem);
+    const novoItem = { id: this.gastos.length +1, data: this.data, descricao: this.descricao, formaPagamento: this.formaPagamento, valor: this.valor, categoria: this.categoria };
+    this.gastos.push(novoItem);
     this.data = '';
     this.descricao = '';
     this.formaPagamento = '';
     this.valor = 0;
+    this.financesService.addItemGastos(novoItem);
   }
 
   removerGasto(index: number) {
-    this.items.splice(index, 1);
+    this.gastos.splice(index, 1);
+    this.financesService.removeItemGastos(index);
   }
 
   calcularTotal(): number {
-    return this.items.reduce((total, item) => total + item.valor, 0);
+    return this.gastos.reduce((total, gasto) => total + gasto.valor, 0);
   }
 }

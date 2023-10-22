@@ -12,6 +12,7 @@ export class SummaryComponent {
   comprasParceladas: any[] = [];
   receitas: any[] = [];
   despesas: any[] = [];
+  gastos: any[] = [];
   
   constructor(
     public homeService: HomeService,
@@ -20,6 +21,7 @@ export class SummaryComponent {
     this.comprasParceladas = this.financesService.getComprasParceladas();
     this.receitas = this.financesService.getItemReceita();
     this.despesas = this.financesService.getItemDespesa();
+    this.gastos = this.financesService.getItemGastos();
   }
     
   ngOnInit() {

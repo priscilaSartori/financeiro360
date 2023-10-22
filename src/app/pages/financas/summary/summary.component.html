@@ -20,4 +20,12 @@
     <p>{{compra.categoria}}</p>
     <p>{{compra.meses}}</p>
   </div>
+  <h1>Gastos diários</h1>
+  <div *ngFor="let gasto of gastos">
+    <p>{{gasto.data}}</p>
+    <p>{{gasto.descricao}}</p>
+    <p>{{gasto.formaPagamento}}</p>
+    <p>{{gasto.valor}}</p>
+    <p>{{gasto.categoria}}</p>
+  </div>
 </section>
