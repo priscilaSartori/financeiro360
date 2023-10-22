@@ -9,7 +9,7 @@
 
     <label for="pagamento">Forma de Pagamento:</label>
     <select [(ngModel)]="formaPagamento" [ngModelOptions]="{standalone: true}" id="pagamento">
-      <option *ngFor="let pagto of pagamento" [value]="pagto.name">{{ pagto.name }}</option>
+      <option *ngFor="let pagto of pagamentos" [value]="pagto.name">{{ pagto.name }}</option>
     </select>
 
     <label for="valor">Valor:</label>
@@ -47,4 +47,3 @@
     </tbody>
   </table>
 </section>
-<!-- Colocar um botao para o envio das informações para a API -->
