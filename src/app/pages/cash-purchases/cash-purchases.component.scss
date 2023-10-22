@@ -13,3 +13,12 @@ section {
   width: 1285px;
   left: 80px;
 }
+
+.meses {
+  display: flex;
+  flex-direction: row;
+}
+
+.mes {
+  padding-left: 10px;
+}

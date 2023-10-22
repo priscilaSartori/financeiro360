@@ -1,5 +1,44 @@
 <section class="elemento {{ collapsed ? 'ativo' : 'inativo' }}">
-  <p>cash-purchases works!</p>
-  
+  <form (ngSubmit)="adicionarItem()">
+    <label for="descricao">Descrição:</label>
+    <input type="text" id="descricao" [(ngModel)]="descricao" required [ngModelOptions]="{standalone: true}">
+
+    <label for="valor">Valor:</label>
+    <input type="number" id="valor" [(ngModel)]="valor" required [ngModelOptions]="{standalone: true}">
+
+    <label for="valor">Parcelas:</label>
+    <input type="number" id="quantidadeParcelas" [(ngModel)]="quantidadeParcelas" min="1" required [ngModelOptions]="{standalone: true}">
+
+    <select [(ngModel)]="mesSelecionado" [ngModelOptions]="{standalone: true}">
+      <option *ngFor="let mes of meses" [value]="mes.value">{{ mes.name }}</option>
+    </select>
+
+    <button type="submit">Adicionar</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th>Parcelas</th>
+        <th>Valor das parcelas</th>
+        <th>Meses</th>
+        <th>Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items; let i = index">
+        <td>{{ item.descricao }}</td>
+        <td>{{ item.valor }}</td>
+        <td>{{ item.parcelas }}</td>
+        <td>{{ item.valor / item.parcelas }}</td>
+        <td class="meses">
+          <div class="mes" *ngFor="let parcela of item.meses">{{ parcela }}</div>
+        </td>
+        <td><button (click)="removerCompra(i)">Excluir</button></td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 <!-- Colocar um botao para o envio das informações para a API -->

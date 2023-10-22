@@ -88,7 +88,7 @@ export class HeaderComponent {
         this.page = 'ORÇAMENTO MENSAL';
       }
       if(novaVariavel === 'cashPurchases') {
-        this.page = 'COMPRAS PARCELADAS';
+        this.page = 'CONTROLE DE COMPRAS PARCELADAS';
       }
       if(novaVariavel === 'spending') {
         this.page = 'GASTOS';
