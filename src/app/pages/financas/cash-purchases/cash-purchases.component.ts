@@ -67,4 +67,8 @@ export class CashPurchasesComponent {
     this.items.splice(index, 1);
     this.financesService.removeCompraParcelada(index);
   }
+
+  calcularCompras(): number {
+    return this.items.reduce((total, item) => total + item.valor, 0);
+  }
 }

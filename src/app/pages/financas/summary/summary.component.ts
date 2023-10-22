@@ -29,4 +29,25 @@ export class SummaryComponent {
       this.collapsed = novaVariavel;
     });
   }
+
+  calcularReceitas(): number {
+    return this.receitas.reduce((total, item) => total + item.valor, 0);
+  }
+
+  calcularDespesas(): number {
+    return this.despesas.reduce((total, item) => total + item.valor, 0);
+  }
+
+  calcularGastos(): number {
+    return this.gastos.reduce((total, gasto) => total + gasto.valor, 0);
+  }
+
+  calcularCompras(): number {
+    return this.comprasParceladas.reduce((total, item) => total + item.valor, 0);
+  }
+
+  calcularSaldo(): number {
+    const totalDespesas = this.calcularDespesas() + this.calcularGastos() + this.calcularCompras()
+    return this.calcularReceitas() - totalDespesas;
+  }
 }

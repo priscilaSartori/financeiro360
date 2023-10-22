@@ -22,6 +22,7 @@
     <button type="submit">Adicionar</button>
   </form>
 
+  <h3>Total das compras: {{ calcularCompras() | currency:'BRL':'symbol':'1.2-2' }}</h3>
   <table>
     <thead>
       <tr>

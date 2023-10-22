@@ -1,10 +1,32 @@
 <section class="elemento {{ collapsed ? 'ativo' : 'inativo' }}">
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Total das receitas</th>
+          <th>Total dos despesas fixas</th>
+          <th>Total dos gastos diários</th>
+          <th>Total das compras parceladas</th>
+          <th>Saldo líquido</th>
+        </tr>
+      </thead>
+      <tbody>
+        <td>{{ calcularReceitas() | currency:'BRL':'symbol':'1.2-2' }}</td>
+        <td>{{ calcularDespesas() | currency:'BRL':'symbol':'1.2-2' }}</td>
+        <td>{{ calcularGastos() | currency:'BRL':'symbol':'1.2-2' }}</td>
+        <td>{{ calcularCompras() | currency:'BRL':'symbol':'1.2-2'}}</td>
+        <td>{{ calcularSaldo() | currency:'BRL':'symbol':'1.2-2' }}</td>
+      </tbody>
+    </table>
+  </div>
+
   <h1>Receitas</h1>
   <div *ngFor="let item of receitas">
     <p>{{item.data}}</p>
     <p>{{item.descricao}}</p>
     <p>{{item.valor}}</p>
   </div>
+  
   <h1>Despesas Fixas</h1>
   <div *ngFor="let item of despesas">
     <p>{{item.categoria}}</p>
@@ -12,6 +34,7 @@
     <p>{{item.valor | currency:'BRL':'symbol':'1.2-2'}}</p>
     <p>{{item.vencimento}}</p>
   </div>
+  
   <h1>Compras parceladas</h1>
   <div *ngFor="let compra of comprasParceladas">
     <p>{{compra.descricao}}</p>
@@ -20,6 +43,7 @@
     <p>{{compra.categoria}}</p>
     <p>{{compra.meses}}</p>
   </div>
+  
   <h1>Gastos diários</h1>
   <div *ngFor="let gasto of gastos">
     <p>{{gasto.data}}</p>
