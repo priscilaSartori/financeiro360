@@ -12,16 +12,20 @@ export class FinancesService {
     categoria: string, 
     meses: string[] 
   }[] = [];
-  
+  private comprasParceladas1: {}[] = []
+
   getComprasParceladas() {
-    return this.comprasParceladas;
+    this.comprasParceladas1 = JSON.parse(localStorage.getItem('comprasParceladas')!);
+    return this.comprasParceladas1;
   }
   
   addCompraParcelada(compra: any) {
     this.comprasParceladas.push(compra);
+    localStorage.setItem('comprasParceladas', JSON.stringify(this.comprasParceladas));
   }
 
   removeCompraParcelada(index: any) {
     this.comprasParceladas.splice(index, 1);
+    localStorage.setItem('comprasParceladas', JSON.stringify(this.comprasParceladas));
   }
 }

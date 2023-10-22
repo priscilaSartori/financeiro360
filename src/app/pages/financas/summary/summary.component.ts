@@ -10,18 +10,17 @@ import { FinancesService } from 'src/app/services/finances.service';
 export class SummaryComponent {
   collapsed: boolean = false;
   comprasParceladas: any[] = [];
-
+  
   constructor(
     public homeService: HomeService,
     private financesService: FinancesService
-    ) {
-      this.comprasParceladas = this.financesService.getComprasParceladas();
+  ) {
+    this.comprasParceladas = this.financesService.getComprasParceladas();
   }
-
+    
   ngOnInit() {
     this.homeService.obterVariavel1Observable().subscribe(novaVariavel => {
       this.collapsed = novaVariavel;
     });
   }
-
 }

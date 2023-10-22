@@ -24,7 +24,9 @@ export class CashPurchasesComponent {
   constructor(
     public homeService: HomeService,
     public financesService: FinancesService,
-    ) {}
+    ) {
+      this.items = this.financesService.getComprasParceladas();
+    }
 
   ngOnInit() {
     this.homeService.obterVariavel1Observable().subscribe(novaVariavel => {
