@@ -1,5 +1,10 @@
 <section class="elemento {{ collapsed ? 'ativo' : 'inativo' }}">
-  <p>summary works!</p>
-  
+  <h1>Compras parceladas</h1>
+  <div *ngFor="let compra of comprasParceladas">
+    <p>{{compra.descricao}}</p>
+    <p>{{compra.valor}}</p>
+    <p>{{compra.parcelas}}</p>
+    <p>{{compra.categoria}}</p>
+    <p>{{compra.meses}}</p>
+  </div>
 </section>
-<!-- Colocar um botao para o envio das informações para a API -->

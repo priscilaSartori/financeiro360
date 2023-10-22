@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
 import { mesesData, categoriasData } from '../../../mock/financas-data';
+import { FinancesService } from 'src/app/services/finances.service';
 
 @Component({
   selector: 'app-cash-purchases',
@@ -9,20 +10,21 @@ import { mesesData, categoriasData } from '../../../mock/financas-data';
 })
 export class CashPurchasesComponent {
   collapsed: boolean = false;
-  items: { id: number, descricao: string, valor: number, parcelas: number, categoria: string, meses: string[] }[] = [];
   descricao: string = '';
   valor: number = 0;
   categoria: string = '';
   mesSelecionado!: string; // Mês inicial
   quantidadeParcelas: number = 1; // Quantidade inicial de parcelas
-  
   parcelas: any[] = [];
   mesesSelecionados: string[] = [];
-  
   categorias = categoriasData;
   meses = mesesData;
+  items: any[] = [];
   
-  constructor(public homeService: HomeService) {}
+  constructor(
+    public homeService: HomeService,
+    public financesService: FinancesService,
+    ) {}
 
   ngOnInit() {
     this.homeService.obterVariavel1Observable().subscribe(novaVariavel => {
@@ -56,9 +58,11 @@ export class CashPurchasesComponent {
     this.valor = 0;
     this.quantidadeParcelas = 1;
     this.mesSelecionado = '';
+    this.financesService.addCompraParcelada(novoItem);
   }
 
   removerCompra(index: number) {
     this.items.splice(index, 1);
+    this.financesService.removeCompraParcelada(index);
   }
 }
