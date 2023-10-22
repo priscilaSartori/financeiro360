@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
 import { categoriasData } from '../../../mock/financas-data';
+import { FinancesService } from 'src/app/services/finances.service';
 
 @Component({
   selector: 'app-monthly-budget',
@@ -12,19 +13,23 @@ export class MonthlyBudgetComponent {
   descricaoReceita: string = '';
   valorReceita: number = 0;
   dataReceita!: string;
-  itemsReceita: { id: number, descricao: string, valor: number, data: string }[] = [];
-
+  
   descricaoDespesa: string = '';
   valorDespesa: number = 0;
-  vencimentoDespesa!: string;
-  categoria: string = '';
-  itemsDespesa: { id: number, categoria: string, descricao: string, valor: number, vencimento: string }[] = [];
-
+  vencimentoDespesa: string = '';
+  categoriaDespesa: string = '';
+  
   categorias = categoriasData;
-
+  itemsReceita: any[] = [];
+  itemsDespesa: any[] = [];
+  
   constructor(
     public homeService: HomeService,
-  ) {}
+    public financesService: FinancesService,
+    ) {
+      this.itemsReceita = this.financesService.getItemReceita();
+      this.itemsDespesa = this.financesService.getItemDespesa();
+    }
 
   ngOnInit() {
     this.homeService.obterVariavel1Observable().subscribe(novaVariavel => {
@@ -38,15 +43,17 @@ export class MonthlyBudgetComponent {
     this.descricaoReceita = '';
     this.valorReceita = 0;
     this.dataReceita = '';
+    this.financesService.addItemReceita(novoItem);
   }
   
   adicionarItemDespesa() {
-    const novoItem = { id: this.itemsDespesa.length +1, categoria: this.categoria, descricao: this.descricaoDespesa, valor: this.valorDespesa, vencimento: this.vencimentoDespesa, };
+    const novoItem = { id: this.itemsDespesa.length +1, categoria: this.categoriaDespesa, descricao: this.descricaoDespesa, valor: this.valorDespesa, vencimento: this.vencimentoDespesa, };
     this.itemsDespesa.push(novoItem);
-    this.categoria = '';
+    this.categoriaDespesa = '';
     this.descricaoDespesa = '';
     this.valorDespesa = 0;
     this.vencimentoDespesa = '';
+    this.financesService.addItemDespesa(novoItem);
   }
 
   calcularTotalReceitas(): number {
@@ -59,9 +66,11 @@ export class MonthlyBudgetComponent {
 
   removerItemReceita(index: number) {
     this.itemsReceita.splice(index, 1);
+    this.financesService.removeItemReceita(index);
   }
 
   removerItemDespesa(index: number) {
     this.itemsDespesa.splice(index, 1);
+    this.financesService.removeItemDespesa(index);
   }
 }

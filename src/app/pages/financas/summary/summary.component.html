@@ -1,4 +1,17 @@
 <section class="elemento {{ collapsed ? 'ativo' : 'inativo' }}">
+  <h1>Receitas</h1>
+  <div *ngFor="let item of receitas">
+    <p>{{item.data}}</p>
+    <p>{{item.descricao}}</p>
+    <p>{{item.valor}}</p>
+  </div>
+  <h1>Despesas Fixas</h1>
+  <div *ngFor="let item of despesas">
+    <p>{{item.categoria}}</p>
+    <p>{{item.descricao}}</p>
+    <p>{{item.valor | currency:'BRL':'symbol':'1.2-2'}}</p>
+    <p>{{item.vencimento}}</p>
+  </div>
   <h1>Compras parceladas</h1>
   <div *ngFor="let compra of comprasParceladas">
     <p>{{compra.descricao}}</p>

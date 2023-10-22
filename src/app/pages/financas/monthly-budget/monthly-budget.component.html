@@ -49,7 +49,7 @@
       <input type="date" id="vencimentoDespesa" [(ngModel)]="vencimentoDespesa" required [ngModelOptions]="{standalone: true}">
      
       <label for="parcela">Categorias:</label>
-      <select [(ngModel)]="categoria" [ngModelOptions]="{standalone: true}">
+      <select [(ngModel)]="categoriaDespesa" id="parcela" [ngModelOptions]="{standalone: true}">
         <option *ngFor="let categoria of categorias" [value]="categoria.name">{{ categoria.name }}</option>
       </select>
       

@@ -10,12 +10,16 @@ import { FinancesService } from 'src/app/services/finances.service';
 export class SummaryComponent {
   collapsed: boolean = false;
   comprasParceladas: any[] = [];
+  receitas: any[] = [];
+  despesas: any[] = [];
   
   constructor(
     public homeService: HomeService,
     private financesService: FinancesService
   ) {
     this.comprasParceladas = this.financesService.getComprasParceladas();
+    this.receitas = this.financesService.getItemReceita();
+    this.despesas = this.financesService.getItemDespesa();
   }
     
   ngOnInit() {
