@@ -10,6 +10,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatMenuModule } from '@angular/material/menu'
 import { MatIconModule } from '@angular/material/icon';
+import { ChartModule } from 'angular-highcharts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,6 +46,7 @@ import { SummaryComponent } from './pages/financas/summary/summary.component';
 import { PlanningComponent } from './pages/financas/planning/planning.component';
 import { HouseBillsComponent } from './pages/casa/house-bills/house-bills.component';
 import { MarketComponent } from './pages/casa/market/market.component';
+import { InvestmentsComponent } from './pages/financas/investments/investments.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +81,8 @@ import { MarketComponent } from './pages/casa/market/market.component';
     SummaryComponent,
     PlanningComponent,
     HouseBillsComponent,
-    MarketComponent
+    MarketComponent,
+    InvestmentsComponent
   ],
   imports: [
     BrowserModule,
@@ -96,6 +99,7 @@ import { MarketComponent } from './pages/casa/market/market.component';
     MatToolbarModule,
     MatMenuModule,
     MatIconModule,
+    ChartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

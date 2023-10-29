@@ -41,6 +41,20 @@ export class FinancesService {
   }[] = [];
   private itemsGastos1: {}[] = []
 
+  itemsInvestimento: {
+    id: number,
+    ativo: string;
+    produto: string;
+    transacao: string;
+    corretora: string;
+    data: string;
+    quantidade: number;
+    preco: number;
+    valor: number;
+  }[] = [];
+  private itemsInvestimento1: {}[] = []
+
+
   getComprasParceladas() {
     this.comprasParceladas1 = JSON.parse(localStorage.getItem('comprasParceladas')!);
     return this.comprasParceladas1;
@@ -103,5 +117,22 @@ export class FinancesService {
   removeItemGastos(index: any) {
     this.itemsGastos.splice(index, 1);
     localStorage.setItem('gastos', JSON.stringify(this.itemsGastos));
+  }
+
+  getItemInvestimento() {
+    this.itemsInvestimento1 = JSON.parse(localStorage.getItem('investimento') || '[]');
+    return this.itemsInvestimento1;
+  }
+
+  addItemInvestimento(compra: any) {
+    this.itemsInvestimento1 = JSON.parse(localStorage.getItem('investimento') || '[]');
+    this.itemsInvestimento1.push(compra);
+    localStorage.setItem('investimento', JSON.stringify(this.itemsInvestimento1));
+  }
+
+  removeItemInvestimento(index: any) {
+    this.itemsInvestimento1 = JSON.parse(localStorage.getItem('investimento') || '[]');
+    this.itemsInvestimento1.splice(index, 1);
+    localStorage.setItem('investimento', JSON.stringify(this.itemsInvestimento1));
   }
 }

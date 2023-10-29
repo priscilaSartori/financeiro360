@@ -1,0 +1,48 @@
+<section class="elemento {{ collapsed ? 'ativo' : 'inativo' }}">
+  <div>
+    <h3>Metas</h3>
+    <form (ngSubmit)="adicionarMeta()">
+      <label for="meta">Meta:</label>
+      <input type="text" id="meta" [(ngModel)]="meta" required [ngModelOptions]="{standalone: true}">
+  
+      <label for="prazo">Prazo:</label>
+      <select name="prazo" id="prazo" [(ngModel)]="prazo">
+        <option value="curto">Curto</option>
+        <option value="medio">Médio</option>
+        <option value="longo">Longo</option>
+      </select>
+  
+      <label for="status">Status:</label>
+      <select name="status" id="status" [(ngModel)]="status">
+        <option value="naoIniciada">Não iniciada</option>
+        <option value="emProgresso">Em progresso</option>
+        <option value="atrasada">Atrasada</option>
+        <option value="concluida">Concluída</option>
+        <option value="cancelada">Cancelada</option>
+        <option value="suspensa">Suspendida</option>
+        <option value="arquivada">Arquivada</option>
+      </select>
+  
+      <button type="submit">Adicionar</button>
+    </form>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Meta</th>
+          <th>Prazo</th>
+          <th>Status</th>
+          <th>Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of itemsMeta; let i = index">
+          <td>{{ item.meta}}</td>
+          <td>{{ item.prazo}}</td>
+          <td>{{ item.status }}</td>
+          <td><button (click)="removerMeta(i)">Excluir</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>  
+</section>
