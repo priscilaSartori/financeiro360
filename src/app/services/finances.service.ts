@@ -68,11 +68,13 @@ export class FinancesService {
   }
   
   addCompraParcelada(compra: any) {
+    this.comprasParceladas = JSON.parse(localStorage.getItem('comprasParceladas') || '[]');
     this.comprasParceladas.push(compra);
     localStorage.setItem('comprasParceladas', JSON.stringify(this.comprasParceladas));
   }
 
   removeCompraParcelada(index: any) {
+    this.comprasParceladas = JSON.parse(localStorage.getItem('comprasParceladas') || '[]');
     this.comprasParceladas.splice(index, 1);
     localStorage.setItem('comprasParceladas', JSON.stringify(this.comprasParceladas));
   }

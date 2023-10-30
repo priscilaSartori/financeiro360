@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { navTarefasData, navLazerData, navSaudeData, navFinancasData, navCasaData } from '../../mock/nav-data';
+import { navFinancasData } from '../../mock/nav-data';
 import { Router } from '@angular/router';
 import { ISideNavToggle } from 'src/app/interfaces/ISideNavToggle';
 import { HomeService } from 'src/app/services/home.service';
@@ -12,11 +12,7 @@ import { HomeService } from 'src/app/services/home.service';
 
 export class SidenavComponent implements OnInit {
   collapsed: boolean = false;
-  navTarefas = navTarefasData;
-  navLazer = navLazerData;
-  navSaude = navSaudeData;
   navFinancas = navFinancasData;
-  navCasa = navCasaData;
   page: string = ''
 
   constructor(private homeService: HomeService) {}

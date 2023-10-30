@@ -1,0 +1,37 @@
+<section>
+  <div class="titulo-form">
+    <h1>Dados Compras Parceladas</h1>
+  </div>
+  <form (ngSubmit)="adicionarItem()" class="dadosCapa-form">
+    <mat-form-field>
+      <mat-label for="descricao">Descrição:</mat-label>
+      <input matInput type="text" id="descricao" [(ngModel)]="descricao" required [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label for="valor">Valor:</mat-label>
+      <input matInput type="number" id="valor" [(ngModel)]="valor" required [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label for="parcela">Parcelas:</mat-label>
+      <input matInput type="number" id="parcela" [(ngModel)]="quantidadeParcelas" min="1" required [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label for="categoria">Categorias:</mat-label>
+      <mat-select [(ngModel)]="categoria" id="categoria" [ngModelOptions]="{standalone: true}">
+        <mat-option *ngFor="let categoria of categorias" [value]="categoria.name">{{ categoria.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label for="mesSelecionado">Primeiro mês:</mat-label>
+      <mat-select [(ngModel)]="mesSelecionado" id="mesSelecionado" [ngModelOptions]="{standalone: true}">
+        <mat-option *ngFor="let mes of meses" [value]="mes.value">{{ mes.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <button mat-button type="submit">Adicionar</button>
+  </form>
+</section>

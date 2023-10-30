@@ -22,7 +22,6 @@ export class HeaderComponent {
     public homeService: HomeService,
   ) {
     
-    //Nome 
     const usuarioRecuperado = localStorage.getItem('usuarioLogado')
     if (usuarioRecuperado) {
       const jsonUsuario = JSON.parse(usuarioRecuperado)
@@ -36,54 +35,6 @@ export class HeaderComponent {
     });
 
     this.homeService.obterVariavel2Observable().subscribe(novaVariavel => {
-      if(novaVariavel === 'routinePlanning') {
-        this.page = 'PLANEJAMENTO DE ROTINA';
-      }
-      if(novaVariavel === 'habit') {
-        this.page = 'RASTREADOR DE HÁBITOS';
-      }
-      if(novaVariavel === 'mealPlanner') {
-        this.page = 'PLANNER DE REFEIÇÃO';
-      }
-      if(novaVariavel === 'sleepDiary') {
-        this.page = 'DIÁRIO DO SONO';
-      }
-      if(novaVariavel === 'routine') {
-        this.page = 'ROTINA DE ESTUDOS';
-      }
-      if(novaVariavel === 'priority') {
-        this.page = 'TABELA DE PRIORIDADES';
-      }
-      if(novaVariavel === 'challenge') {
-        this.page = 'DESAFIO 100 DIAS DE PRODUTIVIDADE';
-      }
-      if(novaVariavel === 'books') {
-        this.page = 'LIVROS';
-      }
-      if(novaVariavel === 'films') {
-        this.page = 'FILMES';
-      }
-      if(novaVariavel === 'series') {
-        this.page = 'SÉRIES';
-      }
-      if(novaVariavel === 'birthdays') {
-        this.page = 'ANIVERSARIANTES';
-      }
-      if(novaVariavel === 'doctor') {
-        this.page = 'CONSULTAS MÉDICAS';
-      }
-      if(novaVariavel === 'skincare') {
-        this.page = 'SKINCARE';
-      }
-      if(novaVariavel === 'hydration') {
-        this.page = 'HIDRATAÇÃO';
-      }
-      if(novaVariavel === 'exercises') {
-        this.page = 'EXERCÍCIOS FÍSICOS';
-      }
-      if(novaVariavel === 'hairSchedule') {
-        this.page = 'CRONOGRAMA CAPILAR';
-      }
       if(novaVariavel === 'monthlyBudget') {
         this.page = 'ORÇAMENTO MENSAL';
       }
@@ -101,12 +52,6 @@ export class HeaderComponent {
       }
       if(novaVariavel === 'investments') {
         this.page = 'INVESTIMENTOS';
-      }
-      if(novaVariavel === 'houseBills') {
-        this.page = 'CONTAS DA CASA';
-      }
-      if(novaVariavel === 'market') {
-        this.page = 'MERCADO';
       }
     });    
   }
