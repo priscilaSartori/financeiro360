@@ -34,6 +34,7 @@ import { DadosComprasParceladasComponent } from './forms/dados-compras-parcelada
 import { FormReceitasComponent } from './forms/form-receitas/form-receitas.component';
 import { FormDespesasComponent } from './forms/form-despesas/form-despesas.component';
 import { DespesasComponent } from './pages/despesas/despesas.component';
+import { FormGastosComponent } from './forms/form-gastos/form-gastos.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { DespesasComponent } from './pages/despesas/despesas.component';
     DadosComprasParceladasComponent,
     FormReceitasComponent,
     FormDespesasComponent,
-    DespesasComponent
+    DespesasComponent,
+    FormGastosComponent
   ],
   imports: [
     BrowserModule,

@@ -1,49 +1,35 @@
 <section class="elemento {{ collapsed ? 'ativo' : 'inativo' }}">
-  <form (ngSubmit)="adicionarItem()">
+  <div class="display">
+    <div class="display-h3">
+      <h3>Total dos gastos:</h3>
+      <h3>{{ calcularTotal() | currency:'BRL':'symbol':'1.2-2' }}</h3>
+    </div>
 
-    <label for="data">Data:</label>
-    <input type="date" id="data" [(ngModel)]="data" required [ngModelOptions]="{standalone: true}">
-      
-    <label for="descricao">Descrição:</label>
-    <input type="text" id="descricao" [(ngModel)]="descricao" required [ngModelOptions]="{standalone: true}">
+    <table>
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Descrição</th>
+          <th>Forma de Pagamento</th>
+          <th>Valor</th>
+          <th>Categoria</th>
+          <th>Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let gasto of gastos; let i = index">
+          <td>{{ gasto.data }}</td>
+          <td>{{ gasto.descricao }}</td>
+          <td>{{ gasto.formaPagamento }}</td>
+          <td>{{ gasto.valor | currency:'BRL':'symbol':'1.2-2' }}</td>
+          <td>{{ gasto.categoria }}</td>
+          <td><button (click)="removerGasto(i)">Excluir</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-    <label for="pagamento">Forma de Pagamento:</label>
-    <select [(ngModel)]="formaPagamento" [ngModelOptions]="{standalone: true}" id="pagamento">
-      <option *ngFor="let pagto of pagamentos" [value]="pagto.name">{{ pagto.name }}</option>
-    </select>
-
-    <label for="valor">Valor:</label>
-    <input type="number" id="valor" [(ngModel)]="valor" required [ngModelOptions]="{standalone: true}">
-
-    <label for="parcela">Categorias:</label>
-    <select [(ngModel)]="categoria" [ngModelOptions]="{standalone: true}">
-      <option *ngFor="let categoria of categorias" [value]="categoria.name">{{ categoria.name }}</option>
-    </select>
-
-    <button type="submit">Adicionar</button>
-  </form>
-
-  <h3>Total dos gastos: {{ calcularTotal() | currency:'BRL':'symbol':'1.2-2' }}</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Data</th>
-        <th>Descrição</th>
-        <th>Forma de Pagamento</th>
-        <th>Valor</th>
-        <th>Categoria</th>
-        <th>Excluir</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let gasto of gastos; let i = index">
-        <td>{{ gasto.data }}</td>
-        <td>{{ gasto.descricao }}</td>
-        <td>{{ gasto.formaPagamento }}</td>
-        <td>{{ gasto.valor | currency:'BRL':'symbol':'1.2-2' }}</td>
-        <td>{{ gasto.categoria }}</td>
-        <td><button (click)="removerGasto(i)">Excluir</button></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="forms" *ngIf="collapsed === false">
+    <app-form-gastos></app-form-gastos>
+  </div>
 </section>
