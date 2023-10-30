@@ -4,6 +4,12 @@ section {
   top: 43px;
 }
 
+.elemento {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .ativo {
   width: 1100px;
   left: 265px;
@@ -18,29 +24,16 @@ section {
 }
 
 .inativo {
-  // width: 1285px;
   width: 1270px;
   left: 50px;
 }
 
-.meses {
-  display: flex;
-  flex-direction: row;
-}
-
-.mes {
-  padding-left: 10px;
-  background-color: white !important;
-}
-
-.elemento {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.tables {
+  width: 100%;
 }
 
 .display {
-  width: 60%;
+  width: 100%;
   background-color: #aabfbf;
 }
 
@@ -50,17 +43,6 @@ section {
   background-color: #8b9b9b;
   border: 5px solid #aabfbf;
   border-bottom: none;
-}
-
-.forms {
-  min-height: 1000px;
-  background-color: #aabfbf;
-  display: flex;
-  flex-direction: column;
-  justify-content:flex-start;
-  align-items: center;
-  width: 40%;
-  height: 600px;
 }
 
 h3 {
@@ -89,3 +71,40 @@ th {
   background-color: #3d4949;
   color: #fff;
 }
+
+.forms {
+  min-height: 1000px;
+  background-color: #aabfbf;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  align-items: center;
+  width: 40%;
+}
+
+// .orcamento {
+//   display: flex;
+//   flex-direction: row;
+//   height: 80%;
+// }
+
+// .orcamento-receita {
+//   width: 50%;
+// }
+
+// .orcamento-despesa {
+//   width: 50%;
+// }
+
+// .saldo {
+//   height: 10%;
+//   text-align: center;
+// }
+
+// .inputVencimento {
+//   width: 120px;
+// }
+
+// .inputValor {
+//   width: 100px;
+// }

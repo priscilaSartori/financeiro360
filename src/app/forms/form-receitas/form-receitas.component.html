@@ -1,0 +1,23 @@
+<section>
+  <div class="titulo-form">
+    <h1>Receitas</h1>
+  </div>
+  <form (ngSubmit)="adicionarItemReceita()" class="dadosCapa-form">
+    <mat-form-field>
+      <mat-label for="descricaoReceita">Descrição:</mat-label>
+      <input matInput type="text" id="descricaoReceita" [(ngModel)]="descricaoReceita" required [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="valorReceita">Valor:</mat-label>
+      <input matInput type="number" id="valorReceita" [(ngModel)]="valorReceita" required [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="dataReceita">Data:</mat-label>
+      <input matInput type="date" id="dataReceita" [(ngModel)]="dataReceita" required [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+    <button mat-button type="submit">Adicionar</button>
+  </form>
+</section>

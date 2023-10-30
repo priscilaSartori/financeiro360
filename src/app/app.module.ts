@@ -24,13 +24,16 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ProfileComponent } from './dialog/profile/profile.component';
 import { ChangePasswordComponent } from './dialog/change-password/change-password.component';
-import { MonthlyBudgetComponent } from './pages/monthly-budget/monthly-budget.component';
+import { ReceitaComponent } from './pages/receita/receita.component';
 import { CashPurchasesComponent } from './pages/cash-purchases/cash-purchases.component';
 import { SpendingComponent } from './pages/spending/spending.component';
 import { SummaryComponent } from './pages/summary/summary.component';
 import { PlanningComponent } from './pages/planning/planning.component';
 import { InvestmentsComponent } from './pages/investments/investments.component';
 import { DadosComprasParceladasComponent } from './forms/dados-compras-parceladas/dados-compras-parceladas.component';
+import { FormReceitasComponent } from './forms/form-receitas/form-receitas.component';
+import { FormDespesasComponent } from './forms/form-despesas/form-despesas.component';
+import { DespesasComponent } from './pages/despesas/despesas.component';
 
 @NgModule({
   declarations: [
@@ -43,13 +46,16 @@ import { DadosComprasParceladasComponent } from './forms/dados-compras-parcelada
     SidenavComponent,
     ProfileComponent,
     ChangePasswordComponent,
-    MonthlyBudgetComponent,
+    ReceitaComponent,
     CashPurchasesComponent,
     SpendingComponent,
     SummaryComponent,
     PlanningComponent,
     InvestmentsComponent,
-    DadosComprasParceladasComponent
+    DadosComprasParceladasComponent,
+    FormReceitasComponent,
+    FormDespesasComponent,
+    DespesasComponent
   ],
   imports: [
     BrowserModule,

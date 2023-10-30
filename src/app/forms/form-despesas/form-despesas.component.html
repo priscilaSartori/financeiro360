@@ -1,0 +1,30 @@
+<section>
+  <div class="titulo-form">
+    <h1>Despesas Fixas</h1>
+  </div>
+  <form (ngSubmit)="adicionarItemDespesa()" class="dadosCapa-form">
+    <mat-form-field>
+      <mat-label for="descricaoDespesa">Descrição:</mat-label>
+      <input matInput type="text" id="descricaoDespesa" [(ngModel)]="descricaoDespesa" required [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="valorDespesa">Valor:</mat-label>
+      <input matInput type="number" id="valorDespesa" [(ngModel)]="valorDespesa" required [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="vencimentoDespesa">Data:</mat-label>
+      <input matInput type="date" id="vencimentoDespesa" [(ngModel)]="vencimentoDespesa" required [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label for="parcela">Categorias:</mat-label>
+      <mat-select [(ngModel)]="categoriaDespesa" id="parcela" [ngModelOptions]="{standalone: true}">
+        <mat-option *ngFor="let categoria of categorias" [value]="categoria.name">{{ categoria.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <button mat-button type="submit">Adicionar</button>
+  </form>
+</section>

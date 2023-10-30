@@ -35,8 +35,11 @@ export class HeaderComponent {
     });
 
     this.homeService.obterVariavel2Observable().subscribe(novaVariavel => {
-      if(novaVariavel === 'monthlyBudget') {
-        this.page = 'ORÇAMENTO MENSAL';
+      if(novaVariavel === 'receita') {
+        this.page = 'RECEITAS';
+      }
+      if(novaVariavel === 'despesa') {
+        this.page = 'DESPESAS';
       }
       if(novaVariavel === 'cashPurchases') {
         this.page = 'CONTROLE DE COMPRAS PARCELADAS';
@@ -45,7 +48,7 @@ export class HeaderComponent {
         this.page = 'CONTROLE DE GASTOS';
       }
       if(novaVariavel === 'summary') {
-        this.page = 'RESUMO DO MÊS';
+        this.page = 'ORÇAMENTO MENSAL';
       }
       if(novaVariavel === 'planning') {
         this.page = 'METAS';

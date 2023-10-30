@@ -5,7 +5,7 @@
   <form (ngSubmit)="adicionarItem()" class="dadosCapa-form">
     <mat-form-field>
       <mat-label for="descricao">Descrição:</mat-label>
-      <input matInput type="text" id="descricao" [(ngModel)]="descricao" required [ngModelOptions]="{standalone: true}">
+      <input matInput type="text" id="descricao" [(ngModel)]="descricao" maxlength="10" required [ngModelOptions]="{standalone: true}">
     </mat-form-field>
   
     <mat-form-field>

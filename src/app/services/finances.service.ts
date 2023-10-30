@@ -85,11 +85,13 @@ export class FinancesService {
   }
   
   addItemReceita(compra: any) {
+    this.comprasParceladas = JSON.parse(localStorage.getItem('receitas') || '[]');
     this.itemsReceita.push(compra);
     localStorage.setItem('receitas', JSON.stringify(this.itemsReceita));
   }
 
   removeItemReceita(index: any) {
+    this.comprasParceladas = JSON.parse(localStorage.getItem('receitas') || '[]');
     this.itemsReceita.splice(index, 1);
     localStorage.setItem('receitas', JSON.stringify(this.itemsReceita));
   }
@@ -100,11 +102,13 @@ export class FinancesService {
   }
   
   addItemDespesa(compra: any) {
+    this.comprasParceladas = JSON.parse(localStorage.getItem('despesas') || '[]');
     this.itemsDespesa.push(compra);
     localStorage.setItem('despesas', JSON.stringify(this.itemsDespesa));
   }
 
   removeItemDespesa(index: any) {
+    this.comprasParceladas = JSON.parse(localStorage.getItem('despesas') || '[]');
     this.itemsDespesa.splice(index, 1);
     localStorage.setItem('despesas', JSON.stringify(this.itemsDespesa));
   }
@@ -119,11 +123,13 @@ export class FinancesService {
   }
   
   addItemGastos(gasto: any) {
+    this.comprasParceladas = JSON.parse(localStorage.getItem('gastos') || '[]');
     this.itemsGastos.push(gasto);
     localStorage.setItem('gastos', JSON.stringify(this.itemsGastos));
   }
 
   removeItemGastos(index: any) {
+    this.comprasParceladas = JSON.parse(localStorage.getItem('gastos') || '[]');
     this.itemsGastos.splice(index, 1);
     localStorage.setItem('gastos', JSON.stringify(this.itemsGastos));
   }

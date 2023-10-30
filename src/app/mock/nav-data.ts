@@ -1,8 +1,13 @@
 export const navFinancasData = [
   {
-    page: 'monthlyBudget',
+    page: 'receita',
     icon: 'savings',
-    label: 'Orçamento mensal'
+    label: 'Receitas'
+  },
+  {
+    page: 'despesa',
+    icon: 'currency_exchange',
+    label: 'Despesas'
   },
   {
     page: 'cashPurchases',
