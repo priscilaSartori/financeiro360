@@ -97,6 +97,9 @@ export class HeaderComponent {
         this.page = 'RESUMO DO MÊS';
       }
       if(novaVariavel === 'planning') {
+        this.page = 'METAS';
+      }
+      if(novaVariavel === 'investments') {
         this.page = 'INVESTIMENTOS';
       }
       if(novaVariavel === 'houseBills') {

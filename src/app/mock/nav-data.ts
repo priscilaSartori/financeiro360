@@ -111,7 +111,12 @@ export const navFinancasData = [
   {
     page: 'planning',
     icon: 'cases',
-    label: 'Planejamento profissional'
+    label: 'Metas'
+  },
+  {
+    page: 'investments',
+    icon: 'monetization_on',
+    label: 'Investimentos'
   },
 ]
 
