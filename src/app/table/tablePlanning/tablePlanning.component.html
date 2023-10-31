@@ -1,0 +1,22 @@
+<section>
+  <table>
+    <thead>
+      <tr>
+        <th>Meta</th>
+        <th>Prazo</th>
+        <th>Status</th>
+        <th>Atualizar Status</th>
+        <th>Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of itemsMeta; let i = index">
+        <td>{{ item.meta}}</td>
+        <td>{{ item.prazo}}</td>
+        <td>{{ item.status }}</td>
+        <td><button (click)="atualizarStatus(item)">Atualizar Status</button></td>
+        <td><button (click)="removerMeta(i)">Excluir</button></td>
+      </tr>
+    </tbody>
+  </table>
+</section>

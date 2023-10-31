@@ -39,6 +39,8 @@ import { TableReceitasComponent } from './table/tableReceitas/tableReceitas.comp
 import { TableComprasComponent } from './table/tableCompras/tableCompras.component';
 import { TableDespesasComponent } from './table/tableDespesas/tableDespesas.component';
 import { TableGastosComponent } from './table/tableGastos/tableGastos.component';
+import { TablePlanningComponent } from './table/tablePlanning/tablePlanning.component';
+import { FormPlanningComponent } from './forms/form-planning/form-planning.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { TableGastosComponent } from './table/tableGastos/tableGastos.component'
     TableReceitasComponent,
     TableComprasComponent,
     TableDespesasComponent,
-    TableGastosComponent
+    TableGastosComponent,
+    TablePlanningComponent,
+    FormPlanningComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,22 @@
+<section>
+  <div class="titulo-form">
+    <h1>Metas</h1>
+  </div>
+  <form (ngSubmit)="adicionarMeta()" class="dadosCapa-form">
+    <mat-form-field>
+      <mat-label for="meta">Meta:</mat-label>
+      <input matInput type="text" id="meta" [(ngModel)]="meta" required [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="prazo">Prazo:</mat-label>
+      <mat-select name="prazo" id="prazo" [(ngModel)]="prazo">
+        <mat-option value="curto">Curto</mat-option>
+        <mat-option value="medio">Médio</mat-option>
+        <mat-option value="longo">Longo</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button type="submit">Adicionar</button>
+  </form>
+</section>
