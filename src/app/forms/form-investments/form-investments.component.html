@@ -1,0 +1,58 @@
+<section>
+  <div class="titulo-form">
+    <h1>Investimentos</h1>
+  </div>
+  <form (ngSubmit)="adicionarInvestimento()" class="dadosCapa-form">
+    <mat-form-field>
+      <mat-label for="ativo">Ativo:</mat-label>
+      <input matInput type="text" id="ativo" [(ngModel)]="ativo" required [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    
+    <mat-form-field>
+      <mat-label for="produto">Produto:</mat-label>
+      <mat-select name="produto" id="produto" required [(ngModel)]="produto">
+        <mat-option value="acao">Ação</mat-option>
+        <mat-option value="cdb">CDB</mat-option>
+        <mat-option value="cri">CRI / CRA</mat-option>
+        <mat-option value="debentures">Debêntures</mat-option>
+        <mat-option value="etf">ETFs</mat-option>
+        <mat-option value="fii">Fundos Imobiliários</mat-option>
+        <mat-option value="fundoInvestimento">Fundos de Investimento</mat-option>
+        <mat-option value="lf">LF</mat-option>
+        <mat-option value="lci">LCI / LCA</mat-option>
+        <mat-option value="lc">Letra de câmbio</mat-option>
+        <mat-option value="tesouroDireto">Tesouro Direto</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="transacao">Transação:</mat-label>
+      <mat-select name="transacao" id="transacao" required [(ngModel)]="transacao">
+        <mat-option value="compra">Compra</mat-option>
+        <mat-option value="venda">Venda</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="corretora">Corretora:</mat-label>
+      <input matInput type="text" id="corretora" [(ngModel)]="corretora" required [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label for="data">Data:</mat-label>
+      <input matInput type="date" id="data" [(ngModel)]="data" required [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="quantidade">Quantidade:</mat-label>
+      <input matInput type="number" id="quantidade" [(ngModel)]="quantidade" required [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="preco">Preço unitário:</mat-label>
+      <input matInput type="number" id="preco" [(ngModel)]="preco" required [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+    <button mat-button type="submit">Adicionar</button>
+  </form>
+</section>

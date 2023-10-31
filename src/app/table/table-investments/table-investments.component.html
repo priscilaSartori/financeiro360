@@ -1,0 +1,28 @@
+<section>
+  <table>
+    <thead>
+      <tr>
+        <th>Ativo</th>
+        <th>Produto</th>
+        <th>Compra/Venda</th>
+        <th>Corretora</th>
+        <th>Data</th>
+        <th>Quantidade</th>
+        <th>Preço unitário</th>
+        <th>Valor Movimentado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of itemsInvestimento; let i = index">
+        <td>{{ item.ativo }}</td>
+        <td>{{ item.produto }}</td>
+        <td>{{ item.transacao }}</td>
+        <td>{{ item.corretora }}</td>
+        <td>{{ item.data }}</td>
+        <td>{{ item.quantidade }}</td>
+        <td>{{ item.preco | currency:'BRL':'symbol':'1.2-2'}}</td>
+        <td>{{ item.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
+      </tr>
+    </tbody>
+  </table> 
+</section>

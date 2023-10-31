@@ -41,6 +41,9 @@ import { TableDespesasComponent } from './table/tableDespesas/tableDespesas.comp
 import { TableGastosComponent } from './table/tableGastos/tableGastos.component';
 import { TablePlanningComponent } from './table/tablePlanning/tablePlanning.component';
 import { FormPlanningComponent } from './forms/form-planning/form-planning.component';
+import { FormInvestmentsComponent } from './forms/form-investments/form-investments.component';
+import { TableInvestmentsComponent } from './table/table-investments/table-investments.component';
+import { TableMyInvestmentsComponent } from './table/table-my-investments/table-my-investments.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +73,9 @@ import { FormPlanningComponent } from './forms/form-planning/form-planning.compo
     TableGastosComponent,
     TablePlanningComponent,
     FormPlanningComponent,
+    FormInvestmentsComponent,
+    TableInvestmentsComponent,
+    TableMyInvestmentsComponent,
   ],
   imports: [
     BrowserModule,

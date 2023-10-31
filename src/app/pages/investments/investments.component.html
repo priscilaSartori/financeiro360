@@ -1,135 +1,15 @@
 <section class="elemento {{ collapsed ? 'ativo' : 'inativo' }}">
-  <div style="display: flex; flex-direction: row; justify-content: space-around;">
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>PRODUTO</th>
-            <th>VALOR</th>
-            <th>%</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>Ação
-            <td>{{ acao }}</td>
-            <td>{{ ((acao / todosInvestimentos ) * 100).toFixed(0) }}%</td>
-          </tr>
-          <tr>CDB
-            <td>{{ cdb }}</td>
-            <td>{{ ((cdb / todosInvestimentos ) * 100).toFixed(0) }}%</td>
-          </tr>
-          <tr>CRI / CRA
-            <td>{{ cri }}</td>
-            <td>{{ ((cri / todosInvestimentos ) * 100).toFixed(0) }}%</td>
-          </tr>
-          <tr>Debêntures
-            <td>{{ debentures }}</td>
-            <td>{{ ((debentures / todosInvestimentos ) * 100).toFixed(0) }}%</td>
-          </tr>
-          <tr>ETFs
-            <td>{{ etf }}</td>
-            <td>{{ ((etf / todosInvestimentos  ) * 100).toFixed(0) }}%</td>
-          </tr>
-          <tr>Fundos Imobiliários
-            <td>{{ fii }}</td>
-            <td>{{ ((fii / todosInvestimentos ) * 100).toFixed(0) }}%</td>
-          </tr>
-          <tr>Fundos de Investimento
-            <td>{{ fundoInvestimento }}</td>
-            <td>{{ ((fundoInvestimento / todosInvestimentos  ) * 100).toFixed(0) }}%</td>
-          </tr>
-          <tr>LF
-            <td>{{ lf }}</td>
-            <td>{{ ((lf / todosInvestimentos  ) * 100).toFixed(0) }}%</td>
-          </tr>
-          <tr>LCI / LCA
-            <td>{{ lci }}</td>
-            <td>{{ ((lci / todosInvestimentos  ) * 100).toFixed(0) }}%</td>
-          </tr>
-          <tr>Letra de câmbio
-            <td>{{ lc }}</td>
-            <td>{{ ((lc / todosInvestimentos  ) * 100).toFixed(0) }}%</td>
-          </tr>
-          <tr>Tesouro Direto
-            <td>{{ tesouroDireto }}</td>
-            <td>{{ ((tesouroDireto / todosInvestimentos )* 100).toFixed(0) }}%</td>
-          </tr>
-        </tbody>
-      </table> 
+  <div style="display: block; border: 5px solid #aabfbf;">
+    <div style="display: flex; flex-direction: row; justify-content: space-around;">
+      <app-table-my-investments></app-table-my-investments>
+      <div class="chart-container" [chart]="chart"></div>
     </div>
-    <div class="chart-container" [chart]="chart"></div>
+    <div>
+      <app-table-investments></app-table-investments>
+    </div>
   </div>  
   <hr>
   <div>
-    <form (ngSubmit)="adicionarInvestimento()">
-      <div>
-        <label for="ativo">Ativo:</label>
-        <input type="text" id="ativo" [(ngModel)]="ativo" required [ngModelOptions]="{standalone: true}">
-    
-        <label for="produto">Produto:</label>
-        <select name="produto" id="produto" required [(ngModel)]="produto">
-          <option value="acao">Ação</option>
-          <option value="cdb">CDB</option>
-          <option value="cri">CRI / CRA</option>
-          <option value="debentures">Debêntures</option>
-          <option value="etf">ETFs</option>
-          <option value="fii">Fundos Imobiliários</option>
-          <option value="fundoInvestimento">Fundos de Investimento</option>
-          <option value="lf">LF</option>
-          <option value="lci">LCI / LCA</option>
-          <option value="lc">Letra de câmbio</option>
-          <option value="tesouroDireto">Tesouro Direto</option>
-        </select>
-  
-        <label for="transacao">Transação:</label>
-        <select name="transacao" id="transacao" required [(ngModel)]="transacao">
-          <option value="compra">Compra</option>
-          <option value="venda">Venda</option>
-        </select>
-  
-        <label for="corretora">Corretora:</label>
-        <input type="text" id="corretora" [(ngModel)]="corretora" required [ngModelOptions]="{standalone: true}">
-      </div>
-      <div>
-        <label for="data">Data:</label>
-        <input type="date" id="data" [(ngModel)]="data" required [ngModelOptions]="{standalone: true}">
-  
-        <label for="quantidade">Quantidade:</label>
-        <input type="number" id="quantidade" [(ngModel)]="quantidade" required [ngModelOptions]="{standalone: true}">
-  
-        <label for="preco">Preço unitário:</label>
-        <input type="number" id="preco" [(ngModel)]="preco" required [ngModelOptions]="{standalone: true}">
-  
-       </div>
-
-      <button type="submit">Adicionar</button>
-    </form>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Ativo</th>
-          <th>Produto</th>
-          <th>Compra/Venda</th>
-          <th>Corretora</th>
-          <th>Data</th>
-          <th>Quantidade</th>
-          <th>Preço unitário</th>
-          <th>Valor Movimentado</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of itemsInvestimento; let i = index">
-          <td>{{ item.ativo }}</td>
-          <td>{{ item.produto }}</td>
-          <td>{{ item.transacao }}</td>
-          <td>{{ item.corretora }}</td>
-          <td>{{ item.data }}</td>
-          <td>{{ item.quantidade }}</td>
-          <td>{{ item.preco | currency:'BRL':'symbol':'1.2-2'}}</td>
-          <td>{{ item.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
-        </tr>
-      </tbody>
-    </table> 
+    <app-form-investments></app-form-investments>
   </div>  
 </section>
