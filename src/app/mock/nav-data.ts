@@ -20,11 +20,6 @@ export const navFinancasData = [
     label: 'Gastos'
   },
   {
-    page: 'summary',
-    icon: 'money',
-    label: 'Resumo do mês'
-  },
-  {
     page: 'planning',
     icon: 'cases',
     label: 'Metas'

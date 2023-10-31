@@ -1,0 +1,28 @@
+<section>
+  <div class="display-h3" *ngIf="this.page === 'receita'">
+    <h3 class="h3-tabela">Total das receitas:</h3>
+    <h3 class="h3-tabela">{{ calcularTotalReceitas() | currency:'BRL':'symbol':'1.2-2' }}</h3>
+  </div>
+  <div>
+    <h3 class="h3-home" *ngIf="this.page === ''">Receitas</h3>
+  </div>
+   
+  <table>
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th *ngIf="this.page === 'receita'">Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of itemsReceita; let i = index">
+        <td>{{ item.data }}</td>
+        <td>{{ item.descricao }}</td>
+        <td>{{ item.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
+        <td *ngIf="this.page === 'receita'"><button (click)="removerItemReceita(i)">Excluir</button></td>
+      </tr>
+    </tbody>
+  </table>
+</section>

@@ -1,32 +1,6 @@
 <section class="elemento {{ collapsed ? 'ativo' : 'inativo' }}">
   <div class="display">
-    <div class="display-h3">
-      <h3>Total dos gastos:</h3>
-      <h3>{{ calcularTotal() | currency:'BRL':'symbol':'1.2-2' }}</h3>
-    </div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Data</th>
-          <th>Descrição</th>
-          <th>Forma de Pagamento</th>
-          <th>Valor</th>
-          <th>Categoria</th>
-          <th>Excluir</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let gasto of gastos; let i = index">
-          <td>{{ gasto.data }}</td>
-          <td>{{ gasto.descricao }}</td>
-          <td>{{ gasto.formaPagamento }}</td>
-          <td>{{ gasto.valor | currency:'BRL':'symbol':'1.2-2' }}</td>
-          <td>{{ gasto.categoria }}</td>
-          <td><button (click)="removerGasto(i)">Excluir</button></td>
-        </tr>
-      </tbody>
-    </table>
+    <app-tableGastos></app-tableGastos>
   </div>
 
   <div class="forms" *ngIf="collapsed === false">

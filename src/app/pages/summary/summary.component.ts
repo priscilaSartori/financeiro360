@@ -28,6 +28,7 @@ export class SummaryComponent {
     this.homeService.obterVariavel1Observable().subscribe(novaVariavel => {
       this.collapsed = novaVariavel;
     });
+    console.log()
   }
 
   calcularReceitas(): number {

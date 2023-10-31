@@ -14,7 +14,7 @@ export class HeaderComponent {
   name: string = '';
   usuario: string = '';
   collapsed: boolean = false;
-  page: string = 'PAINEL'
+  page: string = 'ORÇAMENTO MENSAL'
   
   constructor(
     private router: Router,
@@ -47,7 +47,7 @@ export class HeaderComponent {
       if(novaVariavel === 'spending') {
         this.page = 'CONTROLE DE GASTOS';
       }
-      if(novaVariavel === 'summary') {
+      if(novaVariavel === '') {
         this.page = 'ORÇAMENTO MENSAL';
       }
       if(novaVariavel === 'planning') {

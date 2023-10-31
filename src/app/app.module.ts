@@ -35,6 +35,10 @@ import { FormReceitasComponent } from './forms/form-receitas/form-receitas.compo
 import { FormDespesasComponent } from './forms/form-despesas/form-despesas.component';
 import { DespesasComponent } from './pages/despesas/despesas.component';
 import { FormGastosComponent } from './forms/form-gastos/form-gastos.component';
+import { TableReceitasComponent } from './table/tableReceitas/tableReceitas.component';
+import { TableComprasComponent } from './table/tableCompras/tableCompras.component';
+import { TableDespesasComponent } from './table/tableDespesas/tableDespesas.component';
+import { TableGastosComponent } from './table/tableGastos/tableGastos.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +61,11 @@ import { FormGastosComponent } from './forms/form-gastos/form-gastos.component';
     FormReceitasComponent,
     FormDespesasComponent,
     DespesasComponent,
-    FormGastosComponent
+    FormGastosComponent,
+    TableReceitasComponent,
+    TableComprasComponent,
+    TableDespesasComponent,
+    TableGastosComponent
   ],
   imports: [
     BrowserModule,

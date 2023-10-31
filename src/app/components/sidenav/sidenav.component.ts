@@ -28,7 +28,15 @@ export class SidenavComponent implements OnInit {
     this.homeService.alternarCollapsed();
   }
 
+  displayHome(event: any) {
+    this.homeService.alternarPage(event)
+    this.toggleCollapse()
+  }
+
   displayPage(event: any) {
     this.homeService.alternarPage(event)
+    if (this.collapsed === true) {
+      this.toggleCollapse()
+    }
   }
 }

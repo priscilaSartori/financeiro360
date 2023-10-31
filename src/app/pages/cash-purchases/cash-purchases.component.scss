@@ -1,7 +1,15 @@
 section {
   position: fixed;
-  padding-left: 30px;
+  padding: 0;
   top: 43px;
+  background-color: #aabfbf;
+  height: 100%;
+}
+
+.elemento {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .ativo {
@@ -18,74 +26,11 @@ section {
 }
 
 .inativo {
-  // width: 1285px;
-  width: 1270px;
-  left: 50px;
-}
-
-.meses {
-  display: flex;
-  flex-direction: row;
-}
-
-.mes {
-  padding-left: 10px;
-  background-color: white !important;
-}
-
-.elemento {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  width: 94%;
+  left: 80px;
 }
 
 .display {
-  width: 60%;
-  background-color: #aabfbf;
-}
-
-.display-h3 {
-  display: flex;
-  justify-content: space-around;
-  background-color: #8b9b9b;
-  border: 5px solid #aabfbf;
-  border-bottom: none;
-}
-
-.forms {
-  min-height: 1000px;
-  background-color: #aabfbf;
-  display: flex;
-  flex-direction: column;
-  justify-content:flex-start;
-  align-items: center;
-  width: 40%;
-  height: 600px;
-}
-
-h3 {
-  height: 30px;
-  background-color:#8b9b9b;
-  text-align: center;
-  padding: 10px 0 10px 0;
-  margin-bottom: 0;
-}
-
-table {
   width: 100%;
-  border: 5px solid #aabfbf;
-  border-top: none;
-  background-color: white;
-  height: auto;
-}
-
-td {
-  text-align: center;
-}
-
-th {
-  border: #aabfbf 1px solid;
-  height: 30px;
-  background-color: #3d4949;
-  color: #fff;
+  background-color: #aabfbf;
 }

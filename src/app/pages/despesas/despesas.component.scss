@@ -1,7 +1,9 @@
 section {
   position: fixed;
-  padding-left: 30px;
+  padding: 0;
   top: 43px;
+  background-color: #aabfbf;
+  height: 100%;
 }
 
 .elemento {
@@ -24,60 +26,11 @@ section {
 }
 
 .inativo {
-  width: 1270px;
-  left: 50px;
-}
-
-.tables {
-  width: 100%;
+  width: 94%;
+  left: 80px;
 }
 
 .display {
   width: 100%;
   background-color: #aabfbf;
-}
-
-.display-h3 {
-  display: flex;
-  justify-content: space-around;
-  background-color: #8b9b9b;
-  border: 5px solid #aabfbf;
-  border-bottom: none;
-}
-
-h3 {
-  height: 30px;
-  background-color:#8b9b9b;
-  text-align: center;
-  padding: 10px 0 10px 0;
-  margin-bottom: 0;
-}
-
-table {
-  width: 100%;
-  border: 5px solid #aabfbf;
-  border-top: none;
-  background-color: white;
-  height: auto;
-}
-
-td {
-  text-align: center;
-}
-
-th {
-  border: #aabfbf 1px solid;
-  height: 30px;
-  background-color: #3d4949;
-  color: #fff;
-}
-
-.forms {
-  min-height: 1000px;
-  background-color: #aabfbf;
-  display: flex;
-  flex-direction: column;
-  justify-content:flex-start;
-  align-items: center;
-  width: 40%;
 }

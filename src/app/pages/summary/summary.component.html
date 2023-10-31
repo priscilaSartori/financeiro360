@@ -1,114 +1,39 @@
 <section class="elemento {{ collapsed ? 'ativo' : 'inativo' }}">
-  <div style="width: 90%">
-    <table style="width: 100%">
-      <thead style="width: 100%">
-        <tr style="width: 100%">
-          <th style="width: 20%">Total das receitas</th>
-          <th style="width: 20%">Total dos despesas fixas</th>
-          <th style="width: 20%">Total dos gastos diários</th>
-          <th style="width: 20%">Total das compras parceladas</th>
-          <th style="width: 20%;">Saldo líquido</th>
+  <div class="totais">
+    <table>
+      <thead>
+        <tr>
+          <th>Total das receitas</th>
+          <th>Total dos despesas fixas</th>
+          <th>Total dos gastos diários</th>
+          <th>Total das compras parceladas</th>
+          <th>Saldo líquido</th>
         </tr>
       </thead>
-      <tbody style="width: 100%">
-        <td style="width: 20%; text-align: center;">{{ calcularReceitas() | currency:'BRL':'symbol':'1.2-2' }}</td>
-        <td style="width: 20%; text-align: center;">{{ calcularDespesas() | currency:'BRL':'symbol':'1.2-2' }}</td>
-        <td style="width: 20%; text-align: center;">{{ calcularGastos() | currency:'BRL':'symbol':'1.2-2' }}</td>
-        <td style="width: 20%; text-align: center;">{{ calcularCompras() | currency:'BRL':'symbol':'1.2-2'}}</td>
-        <td style="width: 20%; text-align: center;">{{ calcularSaldo() | currency:'BRL':'symbol':'1.2-2' }}</td>
+      <tbody>
+        <td>{{ calcularReceitas() | currency:'BRL':'symbol':'1.2-2' }}</td>
+        <td>{{ calcularDespesas() | currency:'BRL':'symbol':'1.2-2' }}</td>
+        <td>{{ calcularGastos() | currency:'BRL':'symbol':'1.2-2' }}</td>
+        <td>{{ calcularCompras() | currency:'BRL':'symbol':'1.2-2'}}</td>
+        <td>{{ calcularSaldo() | currency:'BRL':'symbol':'1.2-2' }}</td>
       </tbody>
     </table>
   </div>
-
-  <div class="resumo">
-    <div class="receitasDespesas">
-      <div class="conta">
-        <h1>Receitas</h1>
-          <table class="tabela-conta">
-            <thead>
-              <tr>
-                <th>Data</th>
-                <th>Descrição</th>
-                <th>Valor</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of receitas">
-                <td>{{ item.data }}</td>
-                <td>{{ item.descricao }}</td>
-                <td>{{ item.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
-              </tr>
-            </tbody>
-          </table>
+  <div class="tabelas">
+    <div class="tabela-ladoA">
+      <div>
+        <app-tableReceitas></app-tableReceitas>
       </div>
-      <div class="conta">
-        <h1>Despesas Fixas</h1>
-        <table class="tabela-conta">
-          <thead>
-            <tr>
-              <th>Categoria</th>
-              <th>Descrição</th>
-              <th>Valor</th>
-              <!-- <th>Vencimento</th> -->
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of despesas">
-              <td style="padding-left: 10px; width: 100px;">{{ item.categoria }}</td>
-              <td>{{ item.descricao }}</td>
-              <td>{{ item.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
-              <!-- <td>{{ item.vencimento }}</td> -->
-            </tr>
-          </tbody>
-        </table>
+      <div>
+        <app-tableDespesas></app-tableDespesas>
       </div>
     </div>
-    <div class="parcelasGastos">
-      <div class="conta">
-        <h1>Compras parceladas</h1>
-        <table class="tabela-conta">
-          <thead>
-            <tr>
-              <th>Descrição</th>
-              <th>Valor</th>
-              <th>Parcelas</th>
-              <th>Categoria</th>
-              <th>Meses</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of comprasParceladas">
-              <td>{{ item.descricao }}</td>
-              <td>{{ item.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
-              <td>{{ item.parcelas }}</td>
-              <td>{{ item.categoria }}</td>
-              <td>{{ item.meses }}</td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="tabela-ladoB">
+      <div>
+        <app-tableCompras></app-tableCompras>
       </div>
-      <div class="conta">
-        <h1>Gastos diários</h1>
-        <table class="tabela-conta">
-          <thead>
-            <tr>
-              <th>Data</th>
-              <th>Descrição</th>
-              <th>FormaPagamento</th>
-              <th>Valor</th>
-              <th>Categoria</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of gastos">
-              <td>{{ item.data }}</td>
-              <td>{{ item.descricao }}</td>
-              <td>{{ item.formaPagamento }}</td>
-              <td>{{ item.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
-              <td>{{ item.categoria }}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div>
+        <app-tableGastos></app-tableGastos>
       </div>
     </div>
   </div>

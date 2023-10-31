@@ -1,7 +1,9 @@
 section {
-  position: absolute;
-  padding-left: 30px;
+  position: fixed;
+  padding: 0;
   top: 43px;
+  background-color: #aabfbf;
+  height: 100%;
 }
 
 .elemento div {
@@ -14,35 +16,58 @@ section {
 }
 
 .inativo {
-  width: 100%;
+  width: 95%;
   left: 80px;
 }
 
-.resumo {
+.totais {
+  width: 100%;
+  text-align: center;
+}
+
+table {
+  width: 90%;
+  align-items: center;
+  border: 5px solid #aabfbf;
+  border-top: none;
+  background-color: white;
+  height: auto;
+  margin-left: 50px;
+}
+
+td {
+  text-align: center;
+}
+
+th {
+  border: #aabfbf 1px solid;
+  height: 30px;
+  background-color: #3d4949;
+  color: #fff;
+}
+
+.tabelas {
   display: flex;
   flex-direction: row;
   width: 100%;
 }
 
-.receitasDespesas {
-  width: 50%;
+.tabela-ladoA {
+  width: 600px;
+  margin: 20px;
 }
 
-.parcelasGastos {
-  width: 60%;
+.tabela-ladoA div {
+  height: 200px;
+  margin-bottom: 10px;
 }
 
-.conta {
-  height: 250px;
-  // border: 1px solid black;
-  width: 580px;
+.tabela-ladoB div {
+  height: 200px;
+  margin-bottom: 10px;
 }
 
-.conta .tabela-conta {
-  width: 90%;
-}
-
-.conta .tabela-conta th,
-.conta .tabela-conta td {
-  width: 25%; 
+.tabela-ladoB {
+  width: 600px;
+  margin: 20px;
 }

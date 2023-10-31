@@ -1,0 +1,54 @@
+.display-h3 {
+  display: flex;
+  justify-content: space-around;
+  background-color: #8b9b9b;
+  border: 5px solid #aabfbf;
+  border-bottom: none;
+}
+
+.h3-tabela {
+  height: 30px;
+  background-color:#8b9b9b;
+  text-align: center;
+  padding: 10px 0 10px 0;
+  margin-bottom: 0;
+}
+
+.h3-home {
+  height: 30px;
+  background-color:#8b9b9b;
+  text-align: center;
+  padding: 10px 0 10px 0;
+  margin-bottom: 0;
+  border: 5px solid #aabfbf;
+  border-bottom: none;
+}
+
+table {
+  width: 100%;
+  border: 5px solid #aabfbf;
+  border-top: none;
+  background-color: white;
+  height: auto;
+}
+
+td {
+  text-align: center;
+}
+
+th {
+  border: #aabfbf 1px solid;
+  height: 30px;
+  background-color: #3d4949;
+  color: #fff;
+}
+
+.forms {
+  min-height: 1000px;
+  background-color: #aabfbf;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  align-items: center;
+  width: 40%;
+}

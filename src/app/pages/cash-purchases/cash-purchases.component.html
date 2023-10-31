@@ -1,35 +1,6 @@
 <section class="elemento {{ collapsed ? 'ativo' : 'inativo' }}">
   <div class="display">
-    <div class="display-h3">
-      <h3>Total das compras:</h3>
-      <h3>{{ calcularCompras() | currency:'BRL':'symbol':'1.2-2' }}</h3>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Descrição</th>
-          <th>Valor</th>
-          <th>Parcelas</th>
-          <th>Valor das parcelas</th>
-          <th>Categoria</th>
-          <th>Meses</th>
-          <th>Excluir</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of items; let i = index">
-          <td>{{ item.descricao }}</td>
-          <td>{{ item.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
-          <td>{{ item.parcelas }}</td>
-          <td>{{ item.valor / item.parcelas | currency:'BRL':'symbol':'1.2-2'}}</td>
-          <td>{{ item.categoria }}</td>
-          <td class="meses">
-            <div class="mes" *ngFor="let parcela of item.meses">{{ parcela }}</div>
-          </td>
-          <td><button (click)="removerCompra(i)">Excluir</button></td>
-        </tr>
-      </tbody>
-    </table>
+    <app-tableCompras></app-tableCompras>
   </div>
   <div class="forms" *ngIf="collapsed === false">
     <app-dados-compras-parceladas></app-dados-compras-parceladas>
