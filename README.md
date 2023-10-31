@@ -27,13 +27,13 @@ Nossa missão é capacitar os usuários a tomar o controle de suas finanças, al
 
 # Layout
 <p align="center">
-<img width="916" alt="project-financeiro360-orcamentoMensal" src="">
-<img width="916" alt="project-financeiro360-receitas" src="">
-<img width="916" alt="project-financeiro360-despesas" src="">
-<img width="916" alt="project-financeiro360-compras" src="">
-<img width="916" alt="project-financeiro360-gastos" src="">
-<img width="916" alt="project-financeiro360-metas" src="">
-<img width="916" alt="project-financeiro360-investimentos" src="">
+<img width="916" alt="project-financeiro360-orcamentoMensal" src="https://github.com/priscilaSartori/financeiro360/blob/master/src/assets/orcamentoMensal.png">
+<img width="916" alt="project-financeiro360-receitas" src="https://github.com/priscilaSartori/financeiro360/blob/master/src/assets/receitas.png">
+<img width="916" alt="project-financeiro360-despesas" src="https://github.com/priscilaSartori/financeiro360/blob/master/src/assets/despesas.png">
+<img width="916" alt="project-financeiro360-compras" src="https://github.com/priscilaSartori/financeiro360/blob/master/src/assets/compras.png">
+<img width="916" alt="project-financeiro360-gastos" src="https://github.com/priscilaSartori/financeiro360/blob/master/src/assets/gastos.png">
+<img width="916" alt="project-financeiro360-metas" src="https://github.com/priscilaSartori/financeiro360/blob/master/src/assets/metas.png">
+<img width="916" alt="project-financeiro360-investimentos" src="https://github.com/priscilaSartori/financeiro360/blob/master/src/assets/investimentos.png">
 </p>
 
 
