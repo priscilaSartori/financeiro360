@@ -70,8 +70,4 @@ $ yarn add install
 $ ng serve
 ```
 
-<<<<<<< HEAD
 Acesse o aplicativo em seu navegador em http://localhost:4200.
-=======
-Acesse o aplicativo em seu navegador em http://localhost:4200.
->>>>>>> 086900ab105883cb68778d1fe3d7d72b85d96218
