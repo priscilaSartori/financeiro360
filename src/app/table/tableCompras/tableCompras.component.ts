@@ -20,6 +20,12 @@ export class TableComprasComponent {
       console.log(this.page)
     }
 
+  ngOnInit() {
+    this.financesService.getItemComprasObservable().subscribe((items) => {
+      this.items = items;
+    });
+  }  
+
   removerCompra(index: number) {
     this.items.splice(index, 1);
     this.financesService.removeCompraParcelada(index);

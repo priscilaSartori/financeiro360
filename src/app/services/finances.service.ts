@@ -63,23 +63,6 @@ export class FinancesService {
   }[] = [];
   private itensMeta1: {}[] = []
 
-  getComprasParceladas() {
-    this.comprasParceladas1 = JSON.parse(localStorage.getItem('comprasParceladas')!);
-    return this.comprasParceladas1;
-  }
-  
-  addCompraParcelada(compra: any) {
-    this.comprasParceladas = JSON.parse(localStorage.getItem('comprasParceladas') || '[]');
-    this.comprasParceladas.push(compra);
-    localStorage.setItem('comprasParceladas', JSON.stringify(this.comprasParceladas));
-  }
-
-  removeCompraParcelada(index: any) {
-    this.comprasParceladas = JSON.parse(localStorage.getItem('comprasParceladas') || '[]');
-    this.comprasParceladas.splice(index, 1);
-    localStorage.setItem('comprasParceladas', JSON.stringify(this.comprasParceladas));
-  }
-
   private receitasSubject = new Subject<object[]>();
 
   getItemReceitaObservable() {
@@ -128,10 +111,30 @@ export class FinancesService {
     localStorage.setItem('despesas', JSON.stringify(this.itemsDespesa));
   }
 
-  // getItemGastos() {
-  //   this.itemsGastos1 = JSON.parse(localStorage.getItem('gastos')!);
-  //   return this.itemsGastos1;
-  // }
+  private comprasSubject = new Subject<object[]>();
+
+  getItemComprasObservable() {
+    return this.comprasSubject.asObservable();
+  }
+
+  getComprasParceladas() {
+    this.comprasParceladas1 = JSON.parse(localStorage.getItem('comprasParceladas')!);
+    return this.comprasParceladas1;
+  }
+  
+  addCompraParcelada(compra: any) {
+    this.comprasParceladas = JSON.parse(localStorage.getItem('comprasParceladas') || '[]');
+    this.comprasParceladas.push(compra);
+    localStorage.setItem('comprasParceladas', JSON.stringify(this.comprasParceladas));
+    this.comprasSubject.next(this.comprasParceladas);
+  }
+
+  removeCompraParcelada(index: any) {
+    this.comprasParceladas = JSON.parse(localStorage.getItem('comprasParceladas') || '[]');
+    this.comprasParceladas.splice(index, 1);
+    localStorage.setItem('comprasParceladas', JSON.stringify(this.comprasParceladas));
+  }
+
   getItemGastos(): any[] {
     const gastos = localStorage.getItem('gastos');
     return gastos ? JSON.parse(gastos) : [];

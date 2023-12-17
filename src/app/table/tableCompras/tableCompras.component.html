@@ -28,7 +28,11 @@
         <td class="meses">
           <div class="mes" *ngFor="let parcela of item.meses">{{ parcela }}</div>
         </td>
-        <td *ngIf="this.page === 'cashPurchases'"><button (click)="removerCompra(i)">Excluir</button></td>
+        <td *ngIf="this.page === 'cashPurchases'">
+          <button (click)="removerCompra(i)">
+            <mat-icon>delete</mat-icon>  
+          </button>
+        </td>  
       </tr>
     </tbody>
   </table>
