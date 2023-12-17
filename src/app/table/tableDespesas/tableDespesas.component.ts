@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FinancesService } from 'src/app/services/finances.service';
 import { HomeService } from 'src/app/services/home.service';
 
@@ -7,7 +7,7 @@ import { HomeService } from 'src/app/services/home.service';
   templateUrl: './tableDespesas.component.html',
   styleUrls: ['./tableDespesas.component.scss']
 })
-export class TableDespesasComponent {
+export class TableDespesasComponent implements OnInit {
   itemsDespesa: any[] = [];
   page: string = '';
 
@@ -18,6 +18,12 @@ export class TableDespesasComponent {
       this.itemsDespesa = this.financesService.getItemDespesa();
       this.page = this.homeService.getPage();
       console.log(this.page)
+    }
+
+    ngOnInit() {
+      this.financesService.getItemDespesaObservable().subscribe((itemsDespesa) => {
+        this.itemsDespesa = itemsDespesa;
+      });
     }
 
   calcularTotalDespesas(): number {

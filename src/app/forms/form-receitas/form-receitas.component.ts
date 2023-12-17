@@ -24,8 +24,6 @@ export class FormReceitasComponent {
       this.financesService.getItemReceitaObservable().subscribe((itemsReceita) => {
         this.itemsReceita = itemsReceita;
       });
-      // const receivedItems = this.financesService.getItemReceita();
-      // this.itemsReceita = receivedItems ? receivedItems : [];
     }
 
   adicionarItemReceita() {

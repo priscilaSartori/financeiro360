@@ -15,13 +15,15 @@ export class FormDespesasComponent {
   categoriaDespesa: string = '';
 
   categorias = categoriasData;
-  itemsDespesa: any[] = [];
+  itemsDespesa: object[] = [];
 
   constructor(
     public homeService: HomeService,
     public financesService: FinancesService,
     ) {
-      this.itemsDespesa = this.financesService.getItemDespesa();
+      this.financesService.getItemDespesaObservable().subscribe((itemsDespesa) => {
+        this.itemsDespesa = itemsDespesa;
+      });
     }
 
     adicionarItemDespesa() {

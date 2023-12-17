@@ -104,15 +104,22 @@ export class FinancesService {
     localStorage.setItem('receitas', JSON.stringify(this.itemsReceita));
   }
 
+  private despesaSubject = new Subject<object[]>();
+
+  getItemDespesaObservable() {
+    return this.despesaSubject.asObservable();
+  }
+
   getItemDespesa() {
     this.itemsDespesa1 = JSON.parse(localStorage.getItem('despesas')!);
     return this.itemsDespesa1;
   }
   
   addItemDespesa(compra: any) {
-    this.comprasParceladas = JSON.parse(localStorage.getItem('despesas') || '[]');
+    this.itemsDespesa = JSON.parse(localStorage.getItem('despesas') || '[]');
     this.itemsDespesa.push(compra);
     localStorage.setItem('despesas', JSON.stringify(this.itemsDespesa));
+    this.despesaSubject.next(this.itemsDespesa);
   }
 
   removeItemDespesa(index: any) {

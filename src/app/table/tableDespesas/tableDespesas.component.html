@@ -23,7 +23,11 @@
         <td>{{ item.descricao }}</td>
         <td>{{ item.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
         <td>{{ item.vencimento }}</td>
-        <td *ngIf="this.page === 'despesa'"><button (click)="removerItemDespesa(i)">Excluir</button></td>
+        <td *ngIf="this.page === 'despesa'">
+          <button (click)="removerItemDespesa(i)">
+            <mat-icon>delete</mat-icon>  
+          </button>
+        </td>  
       </tr>
     </tbody>
   </table>
