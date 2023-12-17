@@ -17,6 +17,12 @@ export class TablePlanningComponent {
       this.itemsMeta = this.financesService.getItemMeta();
     }
 
+  ngOnInit() {
+    this.financesService.getItemMetasObservable().subscribe((itemsMeta) => {
+      this.itemsMeta = itemsMeta;
+    });
+  }
+
   atualizarStatus(item: any) {
     const meta = this.itemsMeta.find((m) => m.id === item.id);
   

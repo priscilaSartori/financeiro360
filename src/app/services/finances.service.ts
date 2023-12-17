@@ -159,6 +159,30 @@ export class FinancesService {
     localStorage.setItem('gastos', JSON.stringify(this.itemsGastos));
   }
 
+  private metaSubject = new Subject<object[]>();
+
+  getItemMetasObservable() {
+    return this.metaSubject.asObservable();
+  }
+  
+  getItemMeta() {
+    this.itensMeta1 = JSON.parse(localStorage.getItem('meta') || '[]');
+    return this.itensMeta1;
+  }
+
+  addItemMeta(compra: any) {
+    this.itensMeta = JSON.parse(localStorage.getItem('meta') || '[]');
+    this.itensMeta.push(compra);
+    localStorage.setItem('meta', JSON.stringify(this.itensMeta));
+    this.metaSubject.next(this.itensMeta);
+  }
+
+  removeItemMeta(index: any) {
+    this.itensMeta = JSON.parse(localStorage.getItem('meta') || '[]');
+    this.itensMeta.splice(index, 1);
+    localStorage.setItem('meta', JSON.stringify(this.itensMeta));
+  }
+
   getItemInvestimento() {
     this.itemsInvestimento1 = JSON.parse(localStorage.getItem('investimento') || '[]');
     return this.itemsInvestimento1;
@@ -174,22 +198,5 @@ export class FinancesService {
     this.itemsInvestimento = JSON.parse(localStorage.getItem('investimento') || '[]');
     this.itemsInvestimento.splice(index, 1);
     localStorage.setItem('investimento', JSON.stringify(this.itemsInvestimento));
-  }
-
-  getItemMeta() {
-    this.itensMeta1 = JSON.parse(localStorage.getItem('meta') || '[]');
-    return this.itensMeta1;
-  }
-
-  addItemMeta(compra: any) {
-    this.itensMeta = JSON.parse(localStorage.getItem('meta') || '[]');
-    this.itensMeta.push(compra);
-    localStorage.setItem('meta', JSON.stringify(this.itensMeta));
-  }
-
-  removeItemMeta(index: any) {
-    this.itensMeta = JSON.parse(localStorage.getItem('meta') || '[]');
-    this.itensMeta.splice(index, 1);
-    localStorage.setItem('meta', JSON.stringify(this.itensMeta));
   }
 }

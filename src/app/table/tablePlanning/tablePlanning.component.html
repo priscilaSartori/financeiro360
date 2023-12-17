@@ -14,8 +14,16 @@
         <td>{{ item.meta}}</td>
         <td>{{ item.prazo}}</td>
         <td>{{ item.status }}</td>
-        <td><button (click)="atualizarStatus(item)">Atualizar Status</button></td>
-        <td><button (click)="removerMeta(i)">Excluir</button></td>
+        <td>
+          <button (click)="atualizarStatus(item)">
+            <mat-icon>keyboard_double_arrow_right</mat-icon>
+          </button>
+        </td>
+        <td>
+          <button (click)="removerMeta(i)">
+            <mat-icon>delete</mat-icon>  
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
