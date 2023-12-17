@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
 import { FinancesService } from 'src/app/services/finances.service';
 
@@ -7,7 +7,7 @@ import { FinancesService } from 'src/app/services/finances.service';
   templateUrl: './tableGastos.component.html',
   styleUrls: ['./tableGastos.component.scss']
 })
-export class TableGastosComponent {
+export class TableGastosComponent implements OnInit {
   gastos: any[] = [];
   page: string = '';
 
@@ -18,6 +18,12 @@ export class TableGastosComponent {
       this.gastos = this.financesService.getItemGastos();
       this.page = this.homeService.getPage();
       console.log(this.page)
+    }
+
+    ngOnInit() {
+      this.financesService.getItemGastosObservable().subscribe((itemsGastos) => {
+        this.gastos = itemsGastos;
+      });
     }
 
   removerGasto(index: number) {

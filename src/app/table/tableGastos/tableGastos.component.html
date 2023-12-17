@@ -25,7 +25,11 @@
         <td>{{ gasto.formaPagamento }}</td>
         <td>{{ gasto.valor | currency:'BRL':'symbol':'1.2-2' }}</td>
         <td>{{ gasto.categoria }}</td>
-        <td *ngIf="this.page === 'spending'"><button (click)="removerGasto(i)">Excluir</button></td>
+        <td *ngIf="this.page === 'spending'">
+          <button (click)="removerGasto(i)">
+            <mat-icon>delete</mat-icon>  
+          </button>
+        </td>  
       </tr>
     </tbody>
   </table>

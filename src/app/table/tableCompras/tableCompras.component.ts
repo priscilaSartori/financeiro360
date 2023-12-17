@@ -21,8 +21,8 @@ export class TableComprasComponent {
     }
 
   ngOnInit() {
-    this.financesService.getItemComprasObservable().subscribe((items) => {
-      this.items = items;
+    this.financesService.getItemComprasObservable().subscribe((itemsDespesa) => {
+      this.items = itemsDespesa;
     });
   }  
 

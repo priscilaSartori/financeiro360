@@ -135,15 +135,22 @@ export class FinancesService {
     localStorage.setItem('comprasParceladas', JSON.stringify(this.comprasParceladas));
   }
 
+  private gastosSubject = new Subject<object[]>();
+
+  getItemGastosObservable() {
+    return this.gastosSubject.asObservable();
+  }
+
   getItemGastos(): any[] {
     const gastos = localStorage.getItem('gastos');
     return gastos ? JSON.parse(gastos) : [];
   }
   
   addItemGastos(gasto: any) {
-    this.comprasParceladas = JSON.parse(localStorage.getItem('gastos') || '[]');
+    this.itemsGastos = JSON.parse(localStorage.getItem('gastos') || '[]');
     this.itemsGastos.push(gasto);
     localStorage.setItem('gastos', JSON.stringify(this.itemsGastos));
+    this.gastosSubject.next(this.itemsGastos);
   }
 
   removeItemGastos(index: any) {
