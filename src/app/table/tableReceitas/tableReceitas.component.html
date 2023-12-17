@@ -21,7 +21,11 @@
         <td>{{ item.data }}</td>
         <td>{{ item.descricao }}</td>
         <td>{{ item.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
-        <td *ngIf="this.page === 'receita'"><button (click)="removerItemReceita(i)">Excluir</button></td>
+        <td *ngIf="this.page === 'receita'">
+          <button (click)="removerItemReceita(i)">
+            <mat-icon>delete</mat-icon>  
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -79,15 +80,22 @@ export class FinancesService {
     localStorage.setItem('comprasParceladas', JSON.stringify(this.comprasParceladas));
   }
 
+  private receitasSubject = new Subject<object[]>();
+
+  getItemReceitaObservable() {
+    return this.receitasSubject.asObservable();
+  }
+
   getItemReceita() {
     this.itemsReceita1 = JSON.parse(localStorage.getItem('receitas')!);
     return this.itemsReceita1;
   }
   
   addItemReceita(compra: any) {
-    this.comprasParceladas = JSON.parse(localStorage.getItem('receitas') || '[]');
+    this.itemsReceita = JSON.parse(localStorage.getItem('receitas') || '[]');
     this.itemsReceita.push(compra);
     localStorage.setItem('receitas', JSON.stringify(this.itemsReceita));
+    this.receitasSubject.next(this.itemsReceita);
   }
 
   removeItemReceita(index: any) {

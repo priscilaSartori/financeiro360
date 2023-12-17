@@ -14,14 +14,18 @@ export class FormReceitasComponent {
   dataReceita!: string;
   
   categorias = categoriasData;
-  itemsReceita: any[] = [];
+  itemsReceita: object[] = [];
   
   
   constructor(
     public homeService: HomeService,
     public financesService: FinancesService,
     ) {
-      this.itemsReceita = this.financesService.getItemReceita();
+      this.financesService.getItemReceitaObservable().subscribe((itemsReceita) => {
+        this.itemsReceita = itemsReceita;
+      });
+      // const receivedItems = this.financesService.getItemReceita();
+      // this.itemsReceita = receivedItems ? receivedItems : [];
     }
 
   adicionarItemReceita() {

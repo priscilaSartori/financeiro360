@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
 import { FinancesService } from 'src/app/services/finances.service';
 
@@ -7,7 +7,7 @@ import { FinancesService } from 'src/app/services/finances.service';
   templateUrl: './tableReceitas.component.html',
   styleUrls: ['./tableReceitas.component.scss']
 })
-export class TableReceitasComponent {
+export class TableReceitasComponent implements OnInit {
   itemsReceita: any[] = [];
   page: string = '';
 
@@ -17,8 +17,13 @@ export class TableReceitasComponent {
     ) {
       this.itemsReceita = this.financesService.getItemReceita();
       this.page = this.homeService.getPage();
-      console.log(this.page)
     }
+
+  ngOnInit() {
+    this.financesService.getItemReceitaObservable().subscribe((itemsReceita) => {
+      this.itemsReceita = itemsReceita;
+    });
+  }
 
   calcularTotalReceitas(): number {
     return this.itemsReceita?.reduce((total, item) => total + item.valor, 0);
