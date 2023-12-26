@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
-import { FinancesService } from 'src/app/services/finances.service';
+import { MetasService } from 'src/app/services/metas.service';
 
 @Component({
   selector: 'app-tablePlanning',
@@ -8,23 +8,23 @@ import { FinancesService } from 'src/app/services/finances.service';
   styleUrls: ['./tablePlanning.component.scss']
 })
 export class TablePlanningComponent {
-  itemsMeta: any[] = [];
+  meta: any[] = [];
 
   constructor(
     public homeService: HomeService,
-    public financesService: FinancesService,
+    public metasService: MetasService,
     ) {
-      this.itemsMeta = this.financesService.getItemMeta();
+      this.meta = this.metasService.getItemMeta();
     }
 
   ngOnInit() {
-    this.financesService.getItemMetasObservable().subscribe((itemsMeta) => {
-      this.itemsMeta = itemsMeta;
+    this.metasService.getObservableMetas().subscribe((meta) => {
+      this.meta = meta;
     });
   }
 
   atualizarStatus(item: any) {
-    const meta = this.itemsMeta.find((m) => m.id === item.id);
+    const meta = this.meta.find((m) => m.id === item.id);
   
     if (meta.status === 'naoIniciada') {
       meta.status = "emProgresso";
@@ -36,7 +36,7 @@ export class TablePlanningComponent {
   }
 
   removerMeta(index: number) {
-    this.itemsMeta.splice(index, 1);
-    this.financesService.removeItemMeta(index);
+    this.meta.splice(index, 1);
+    this.metasService.removeItemMeta(index);
   }
 }

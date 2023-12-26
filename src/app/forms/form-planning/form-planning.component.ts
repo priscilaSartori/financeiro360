@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
-import { FinancesService } from 'src/app/services/finances.service';
+import { MetasService } from 'src/app/services/metas.service';
 
 @Component({
   selector: 'app-form-planning',
@@ -15,9 +15,9 @@ export class FormPlanningComponent {
 
   constructor(
     public homeService: HomeService,
-    public financesService: FinancesService,
+    public metasService: MetasService,
     ) {
-      this.itemsMeta = this.financesService.getItemMeta();
+      this.itemsMeta = this.metasService.getItemMeta();
     }
 
   adicionarMeta() {
@@ -31,6 +31,6 @@ export class FormPlanningComponent {
     this.meta = '';
     this.prazo = '';
     this.status = 'naoIniciada';
-    this.financesService.addItemMeta(novoItem);
+    this.metasService.addItemMeta(novoItem);
   }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { categoriasData } from '../../mock/financas-data';
-import { FinancesService } from 'src/app/services/finances.service';
+import { DespesasService } from 'src/app/services/despesas.service';
 import { HomeService } from 'src/app/services/home.service';
 
 @Component({
@@ -19,10 +19,10 @@ export class FormDespesasComponent {
 
   constructor(
     public homeService: HomeService,
-    public financesService: FinancesService,
+    public despesasService: DespesasService,
     ) {
-      this.financesService.getItemDespesaObservable().subscribe((itemsDespesa) => {
-        this.itemsDespesa = itemsDespesa;
+      this.despesasService.getObservableDespesa().subscribe((despesa) => {
+        this.itemsDespesa = despesa;
       });
     }
 
@@ -33,6 +33,6 @@ export class FormDespesasComponent {
       this.descricaoDespesa = '';
       this.valorDespesa = 0;
       this.vencimentoDespesa = '';
-      this.financesService.addItemDespesa(novoItem);
+      this.despesasService.addItemDespesa(novoItem);
     }
 }

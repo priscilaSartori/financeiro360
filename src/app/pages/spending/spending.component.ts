@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
-import { FinancesService } from 'src/app/services/finances.service';
 
 @Component({
   selector: 'app-spending',

@@ -83,7 +83,7 @@ import { TableMyInvestmentsComponent } from './table/table-my-investments/table-
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSnackBarModule, //Pequena janela pop-up ou uma mensagem temporária exibida na parte inferior ou superior da tela, geralmente por um curto período de tempo. O Snackbar é usado para comunicar informações importantes, feedback ou mensagens curtas para os usuários.
+    MatSnackBarModule, 
     MatFormFieldModule,
     MatCardModule,
     MatInputModule,

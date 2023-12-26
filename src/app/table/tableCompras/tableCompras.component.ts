@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
-import { FinancesService } from 'src/app/services/finances.service';
+import { ComprasService } from 'src/app/services/compras.service';
 
 @Component({
   selector: 'app-tableCompras',
@@ -8,30 +8,30 @@ import { FinancesService } from 'src/app/services/finances.service';
   styleUrls: ['./tableCompras.component.scss']
 })
 export class TableComprasComponent {
-  items: any[] = [];
+  compras: any[] = [];
   page: string = '';
 
   constructor(
     public homeService: HomeService,
-    public financesService: FinancesService,
+    public comprasService: ComprasService,
     ) {
-      this.items = this.financesService.getComprasParceladas();
+      this.compras = this.comprasService.getComprasParceladas();
       this.page = this.homeService.getPage();
       console.log(this.page)
     }
 
   ngOnInit() {
-    this.financesService.getItemComprasObservable().subscribe((itemsDespesa) => {
-      this.items = itemsDespesa;
+    this.comprasService.getObservableCompras().subscribe((compras) => {
+      this.compras = compras;
     });
   }  
 
   removerCompra(index: number) {
-    this.items.splice(index, 1);
-    this.financesService.removeCompraParcelada(index);
+    this.compras.splice(index, 1);
+    this.comprasService.removeCompraParcelada(index);
   }
 
   calcularCompras(): number {
-    return this.items?.reduce((total, item) => total + item.valor, 0);
+    return this.compras?.reduce((total, item) => total + item.valor, 0);
   }
 }

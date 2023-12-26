@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
-import { FinancesService } from 'src/app/services/finances.service';
+import { GastosService } from 'src/app/services/gastos.service';
 
 @Component({
   selector: 'app-tableGastos',
@@ -13,22 +13,22 @@ export class TableGastosComponent implements OnInit {
 
   constructor(
     public homeService: HomeService,
-    public financesService: FinancesService,
+    public gastosService: GastosService,
     ) {
-      this.gastos = this.financesService.getItemGastos();
+      this.gastos = this.gastosService.getItemGastos();
       this.page = this.homeService.getPage();
       console.log(this.page)
     }
 
     ngOnInit() {
-      this.financesService.getItemGastosObservable().subscribe((itemsGastos) => {
-        this.gastos = itemsGastos;
+      this.gastosService.getObservableGastos().subscribe((gastos) => {
+        this.gastos = gastos;
       });
     }
 
   removerGasto(index: number) {
     this.gastos.splice(index, 1);
-    this.financesService.removeItemGastos(index);
+    this.gastosService.removeItemGastos(index);
   }
 
   calcularTotal(): number {

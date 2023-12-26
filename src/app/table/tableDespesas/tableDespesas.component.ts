@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FinancesService } from 'src/app/services/finances.service';
+import { DespesasService } from 'src/app/services/despesas.service';
 import { HomeService } from 'src/app/services/home.service';
 
 @Component({
@@ -8,30 +8,30 @@ import { HomeService } from 'src/app/services/home.service';
   styleUrls: ['./tableDespesas.component.scss']
 })
 export class TableDespesasComponent implements OnInit {
-  itemsDespesa: any[] = [];
+  despesa: any[] = [];
   page: string = '';
 
   constructor(
     public homeService: HomeService,
-    public financesService: FinancesService,
+    public despesasService: DespesasService,
     ) {
-      this.itemsDespesa = this.financesService.getItemDespesa();
+      this.despesa = this.despesasService.getItemDespesa();
       this.page = this.homeService.getPage();
       console.log(this.page)
     }
 
     ngOnInit() {
-      this.financesService.getItemDespesaObservable().subscribe((itemsDespesa) => {
-        this.itemsDespesa = itemsDespesa;
+      this.despesasService.getObservableDespesa().subscribe((despesa) => {
+        this.despesa = despesa;
       });
     }
 
   calcularTotalDespesas(): number {
-    return this.itemsDespesa?.reduce((total, item) => total + item.valor, 0);
+    return this.despesa?.reduce((total, item) => total + item.valor, 0);
   }
 
   removerItemDespesa(index: number) {
-    this.itemsDespesa.splice(index, 1);
-    this.financesService.removeItemDespesa(index);
+    this.despesa.splice(index, 1);
+    this.despesasService.removeItemDespesa(index);
   }
 }

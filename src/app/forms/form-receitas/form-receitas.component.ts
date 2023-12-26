@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { categoriasData } from '../../mock/financas-data';
-import { FinancesService } from 'src/app/services/finances.service';
+import { ReceitasService } from 'src/app/services/receitas.service';
 import { HomeService } from 'src/app/services/home.service';
 
 @Component({
@@ -19,10 +19,10 @@ export class FormReceitasComponent {
   
   constructor(
     public homeService: HomeService,
-    public financesService: FinancesService,
+    public receitasService: ReceitasService,
     ) {
-      this.financesService.getItemReceitaObservable().subscribe((itemsReceita) => {
-        this.itemsReceita = itemsReceita;
+      this.receitasService.getObservableReceitas().subscribe((receita) => {
+        this.itemsReceita = receita;
       });
     }
 
@@ -32,6 +32,6 @@ export class FormReceitasComponent {
     this.descricaoReceita = '';
     this.valorReceita = 0;
     this.dataReceita = '';
-    this.financesService.addItemReceita(novoItem);
+    this.receitasService.addItemReceita(novoItem);
   }  
 }

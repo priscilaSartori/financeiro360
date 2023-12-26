@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
 import { mesesData, categoriasData } from '../../mock/financas-data';
-import { FinancesService } from 'src/app/services/finances.service';
+import { ComprasService } from 'src/app/services/compras.service';
 
 @Component({
   selector: 'app-dados-compras-parceladas',
@@ -12,8 +12,8 @@ export class DadosComprasParceladasComponent {
   descricao: string = '';
   valor: number = 0;
   categoria: string = '';
-  mesSelecionado!: string; // Mês inicial
-  quantidadeParcelas: number = 1; // Quantidade inicial de parcelas
+  mesSelecionado!: string; 
+  quantidadeParcelas: number = 1; 
   parcelas: any[] = [];
   mesesSelecionados: string[] = [];
   categorias = categoriasData;
@@ -22,9 +22,9 @@ export class DadosComprasParceladasComponent {
   
   constructor(
     public homeService: HomeService,
-    public financesService: FinancesService,
+    public comprasService: ComprasService,
     ) {
-      this.items = this.financesService.getComprasParceladas();
+      this.items = this.comprasService.getComprasParceladas();
     }
 
   criarParcelas() {
@@ -37,7 +37,7 @@ export class DadosComprasParceladasComponent {
       const qtdeMeses = mesIndex + quantidadeParcelas -1;
   
       for (let i = mesIndex; i <= qtdeMeses; i++) {
-        const index = i % 12; // Garante que o índice esteja entre 0 e 11 para evitar estouro
+        const index = i % 12; 
         mesesSelecionados.push(this.meses[index].name);
       }
   
@@ -53,6 +53,6 @@ export class DadosComprasParceladasComponent {
     this.valor = 0;
     this.quantidadeParcelas = 1;
     this.mesSelecionado = '';
-    this.financesService.addCompraParcelada(novoItem);
+    this.comprasService.addCompraParcelada(novoItem);
   }
 }

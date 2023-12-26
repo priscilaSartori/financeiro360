@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
 import { pagamentosData, categoriasData } from '../../mock/financas-data';
-import { FinancesService } from 'src/app/services/finances.service';
+import { GastosService } from 'src/app/services/gastos.service';
 
 @Component({
   selector: 'app-form-gastos',
@@ -22,9 +22,9 @@ export class FormGastosComponent {
 
   constructor(
     public homeService: HomeService,
-    public financesService: FinancesService,
+    public gastosService: GastosService,
     ) {
-      this.gastos = this.financesService.getItemGastos();
+      this.gastos = this.gastosService.getItemGastos();
     }
 
   adicionarItem() {
@@ -34,6 +34,6 @@ export class FormGastosComponent {
     this.descricao = '';
     this.formaPagamento = '';
     this.valor = 0;
-    this.financesService.addItemGastos(novoItem);
+    this.gastosService.addItemGastos(novoItem);
   }
 }

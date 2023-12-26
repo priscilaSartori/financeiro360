@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
-import { FinancesService } from 'src/app/services/finances.service';
+import { ReceitasService } from 'src/app/services/receitas.service';
+import { DespesasService } from 'src/app/services/despesas.service';
+import { GastosService } from 'src/app/services/gastos.service';
+import { ComprasService } from 'src/app/services/compras.service';
 
 @Component({
   selector: 'app-summary',
@@ -16,12 +19,15 @@ export class SummaryComponent {
   
   constructor(
     public homeService: HomeService,
-    private financesService: FinancesService
+    private receitasService: ReceitasService,
+    private despesasService: DespesasService,
+    private gastosService: GastosService,
+    private comprasService: ComprasService,
   ) {
-    this.comprasParceladas = this.financesService.getComprasParceladas();
-    this.receitas = this.financesService.getItemReceita();
-    this.despesas = this.financesService.getItemDespesa();
-    this.gastos = this.financesService.getItemGastos();
+    this.comprasParceladas = this.comprasService.getComprasParceladas();
+    this.receitas = this.receitasService.getItemReceita();
+    this.despesas = this.despesasService.getItemDespesa();
+    this.gastos = this.gastosService.getItemGastos();
   }
     
   ngOnInit() {

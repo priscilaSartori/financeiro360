@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
-import { FinancesService } from 'src/app/services/finances.service';
+import { ReceitasService } from 'src/app/services/receitas.service';
 
 @Component({
   selector: 'app-tableReceitas',
@@ -8,29 +8,29 @@ import { FinancesService } from 'src/app/services/finances.service';
   styleUrls: ['./tableReceitas.component.scss']
 })
 export class TableReceitasComponent implements OnInit {
-  itemsReceita: any[] = [];
+  receita: any[] = [];
   page: string = '';
 
   constructor(
     public homeService: HomeService,
-    public financesService: FinancesService,
+    public receitasService: ReceitasService,
     ) {
-      this.itemsReceita = this.financesService.getItemReceita();
+      this.receita = this.receitasService.getItemReceita();
       this.page = this.homeService.getPage();
     }
 
   ngOnInit() {
-    this.financesService.getItemReceitaObservable().subscribe((itemsReceita) => {
-      this.itemsReceita = itemsReceita;
+    this.receitasService.getObservableReceitas().subscribe((receita) => {
+      this.receita = receita;
     });
   }
 
   calcularTotalReceitas(): number {
-    return this.itemsReceita?.reduce((total, item) => total + item.valor, 0);
+    return this.receita?.reduce((total, item) => total + item.valor, 0);
   }
 
   removerItemReceita(index: number) {
-    this.itemsReceita.splice(index, 1);
-    this.financesService.removeItemReceita(index);
+    this.receita.splice(index, 1);
+    this.receitasService.removeItemReceita(index);
   }
 }

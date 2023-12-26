@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
-import { FinancesService } from 'src/app/services/finances.service';
+import { InvestimentosService } from 'src/app/services/investimentos.service';
 
 @Component({
   selector: 'app-table-investments',
@@ -8,29 +8,23 @@ import { FinancesService } from 'src/app/services/finances.service';
   styleUrls: ['./table-investments.component.scss']
 })
 export class TableInvestmentsComponent {
-  itemsInvestimento: any[] = [];
-
-  acao: number = 0;
-  cdb: number = 0;
-  cri: number = 0;
-  debentures: number = 0;
-  etf: number = 0;
-  fii: number = 0;
-  fundoInvestimento: number = 0;
-  lf: number = 0;
-  lci: number = 0;
-  lc: number = 0;
-  tesouroDireto: number = 0;
-  todosInvestimentos: number = 0;
-
-  chart: any;
-  categorias: string[] = [];
-  series: {}[] = [];
+  investimento: any[] = [];
+  produtosTotais: Map<string, number> = new Map<string, number>();
 
   constructor(
     public homeService: HomeService,
-    public financesService: FinancesService,
+    public investimentosService: InvestimentosService,
     ) {
-      this.itemsInvestimento = this.financesService.getItemInvestimento();
+      this.investimento = this.investimentosService.getItemInvestimento();
     }
+
+  ngOnInit() {
+    this.investimento = this.investimentosService.getItemInvestimento();
+    this.produtosTotais = this.investimentosService.getProdutosTotais();
+
+    this.investimentosService.getObservableInvestimentos().subscribe((investimento) => {
+      this.investimento = investimento;
+      this.produtosTotais = this.investimentosService.getProdutosTotais();
+    });
+  }
 }
